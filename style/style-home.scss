@@ -1,0 +1,66 @@
+/*THIS IS THE SASS STYLE SHEET OF THE HOME PAGE*/
+
+/*---------IMPORTS----------*/
+
+@import 'style-common';
+
+/*---------GENERAL STUFF----*/
+
+/*--------MAIN----------*/
+
+h1, h2 {
+  text-align: center;
+  padding-top: 3rem;
+  margin: 0;
+  line-height: 3rem;
+}
+
+strong {
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+}
+
+.title-noodles {
+  width: 2rem;
+
+  animation: floating 2.7s ease-in-out infinite;
+}
+
+#map-title-container {
+  width: 100%; height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+
+  span {
+    text-transform: uppercase;
+    font-size: 2rem;
+    align-self: end;
+  }
+}
+
+//dynamic map
+
+#map-image-container {
+  width: 100%; min-height: fit-content;
+  opacity: 1;
+  transform-origin: 50% 50%;
+  transform: scale(1);
+
+  img {
+    width: 100%;
+    animation: pulseMap 2s cubic-bezier(.5, .5, 0, 1);
+  }
+}
+
+/*---------RESPONSSIVE----------*/
+
+@media screen and (max-width: 767px) {
+  #map-title-container {
+    padding-bottom: 2rem;
+    span {
+      font-size: 4vw;
+    }
+  }
+}

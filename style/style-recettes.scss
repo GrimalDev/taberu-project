@@ -1,0 +1,63 @@
+/*THIS IS THE SASS STYLE SHEET OF THE RECETTES PAGE*/
+
+/*---------IMPORTS----------*/
+
+@import 'style-common';
+
+/*---------GENERAL STUFF----*/
+
+/*--------MAIN----------*/
+body {
+  position: relative;
+}
+
+main {
+  min-height: 100vh; width: 100%;
+}
+
+#relative-circle-animation-container {
+  position: relative;
+  top: 0; left: 0;
+  height: 100vh; width: 100%;
+  z-index: 0;
+  background-color: $taberu-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pulse {
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 30rem;
+
+  circle {
+    fill: $taberu-orange;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: 50% 50%;
+    animation: pulse 2s cubic-bezier(.5,.5,0,1);
+
+    &:nth-child(2) {
+      fill: #FFC300;
+      animation: pulse 2s 0.75s cubic-bezier(.5,.5,0,1);
+    }
+
+    &:nth-child(3) {
+      fill: rgba(17, 43, 60, 0.2);
+      animation: pulse 2s 1.5s cubic-bezier(.5,.5,0,1);
+    }
+
+  }
+
+}
+
+h1 {
+  background-color: $taberu-blue;
+  width: 90vw;
+  margin-left: 10vw;
+}
