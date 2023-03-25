@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2680c2be-e792-44c5-a420-04db1ee0dadc" name="Changes" comment="recepies add with chat gpt script">
+    <list default="true" id="2680c2be-e792-44c5-a420-04db1ee0dadc" name="Changes" comment="chat gpt recipes creation">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +173,7 @@
       <workItem from="1670268468598" duration="20000" />
       <workItem from="1679763793037" duration="1683000" />
       <workItem from="1679770913157" duration="42000" />
-      <workItem from="1679770970901" duration="247000" />
+      <workItem from="1679770970901" duration="357000" />
     </task>
     <task id="LOCAL-00001" summary="domain changed to taberu. So all links have been updated">
       <created>1667399105954</created>
@@ -224,7 +224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679770714295</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="example db config">
+      <created>1679771280972</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679771280972</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chat gpt recipes creation">
+      <created>1679771295889</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679771295889</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +279,9 @@
     <MESSAGE value="domain change bug fixes" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="recepies add with chat gpt script" />
-    <option name="LAST_COMMIT_MESSAGE" value="recepies add with chat gpt script" />
+    <MESSAGE value="example db config" />
+    <MESSAGE value="chat gpt recipes creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="chat gpt recipes creation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
