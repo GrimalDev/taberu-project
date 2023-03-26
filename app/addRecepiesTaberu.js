@@ -1,8 +1,8 @@
-const mysql = require('mysql');
-const fetch = require('node-fetch');
+// import mysql from 'mysql';
+import fetch from 'node-fetch';
 
 // Function to fetch an API and return its value
-// Call OpenAI API
+// Call OpenAI API#
 async function callOpenAiApi() {
     //multiline complex text
     const ask = `
@@ -16,9 +16,9 @@ async function callOpenAiApi() {
         
         Voici la liste des pays de recettes possibles :
         
-        Thaïlande : 'thailand'
+
         Japon : 'japan'
-        Chine : 'china'
+
         Inde : 'india'
         
         Exemple de requête:
@@ -46,53 +46,69 @@ async function callOpenAiApi() {
         redirect: 'follow'
     };
 
-    const response = await fetch("https://api.openai.com/v1/completions", requestOptions);
-    return response.json();
+    let response = null;
 
+    try {
+        response = await fetch("https://api.openai.com/v1/completions", requestOptions);
+    } catch (error) {
+        console.error('Error fetching API: ', error);
+        return;
+    }
+    
+    return response.json();
+}
+
+//main function
+async function main() {
+
+    let sqlRecipes = "";
+
+    // Execute the SQL query 10 times to sync the API calls
+    for (let i = 0; i < 10; i++) {
+
+        console.log(`Getting recipes ${i + 1}`);
+
+        let apiCallResult = "";
+
+        setTimeout(() => {
+            console.log('Waiting 1 second');
+        }, 1000);
+
+        // Fetch the API
+        try {
+            apiCallResult = await callOpenAiApi();
+
+            // Add the result to the array
+            sqlRecipes += apiCallResult.choices[0].text;
+        } catch (e) {
+            console.error('Error fetching API: ', e);
+        }
+
+        // connection.query(apiCallResult, (error, results, fields) => {
+        //     if (error) {
+        //     console.error('Error executing query: ', error);
+        //     return;
+        //     }
+
+        //     console.log('Query results: ', results);
+        // });
+    }
+
+    return sqlRecipes;
 }
 
 // Create a connection to the database
-const connection = mysql.createConnection({
-  host: 'srv.grimaldev.local',
-  user: 'taberu-com',
-  password: 'password',
-  database: 'taberu-project'
-});
+// const connection = mysql.createConnection({
+//   host: 'srv.grimaldev.local',
+//   user: 'taberu-com',
+//   password: 'jsm8kD3U8GGWW69G',
+//   database: 'taberu-project'
+// });
 
 // Connect to the database
-connection.connect((error) => {
-  if (error) {
-    console.error('Error connecting to the database: ', error);
-    return;
-  }
+// connection.connect();
 
-  console.log('Connected to the database!');
+console.log(await main());
 
-  // Execute the SQL query 10 times
-  for (let i = 1; i <= 10; i++) {
-        const query = value;
-
-        connection.query(query, (error, results, fields) => {
-          if (error) {
-            console.error('Error executing query: ', error);
-            return;
-          }
-
-          console.log('Query results: ', results);
-        });
-      })
-      .catch((error) => {
-        console.error('Error fetching data: ', error);
-      });
-  }
-
-  // Close the database connection
-  connection.end((error) => {
-    if (error) {
-      console.error('Error closing connection: ', error);
-      return;
-    }
-
-    console.log('Connection closed!');
-  });
-});
+// Close the database connection
+// connection.end();
