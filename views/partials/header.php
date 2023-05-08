@@ -1,5 +1,5 @@
 <header> <!--TODO implement compote or login from session cookie ton get acces to login page or account page-->
-    <img src="../style/media/TaBeRu-solid-fit.png" alt="logo taberu">
+    <img src="../../style/media/TaBeRu-solid-fit.png" alt="logo taberu">
     <nav>
         <div>
             <?php
@@ -10,14 +10,15 @@
                         echo 'nav-txt-active'; //class name in css
                     }
                 }
-                if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]){
-                    echo '<a id="deconnect-nav" href="https://taberu.baptistegrimaldi.info/logout" class="underlined">Se deconnecter</a>';
+                if(isset($_SESSION["loggedin"])){
+                    if ($_SESSION["loggedin"]) {
+                        echo '<a id="deconnect-nav" href=" /logout" class="underlined">Se deconnecter</a>';
+                    }
                 }
             ?>
-            <a href="https://taberu.baptistegrimaldi.info/" class="underlined <?php active('');?>">Accueil</a>
-            <a href="https://taberu.baptistegrimaldi.info/recettes" class="underlined <?php active('recettes');?>">Recettes</a>
-            <a href="https://taberu.baptistegrimaldi.info/forum" class="underlined <?php active('forum');?>">Forum</a>
-            <a href="https://taberu.baptistegrimaldi.info/compte" class="underlined <?php active('compte');?>">Compte</a>
+            <a href="/" class="underlined <?php active('');?>">Accueil</a>
+            <a href=" /recettes" class="underlined <?php active('recettes');?>">Recettes</a>
+            <a href=" /compte" class="underlined <?php active('compte');?>">Compte</a>
             <div id="burger-container">
                 <svg id="animated-burger" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 269.988 269.988" style="enable-background:new 0 0 269.988 269.988;" xml:space="preserve">
                     <path d="M64.994,239.913h140c19.299,0,35-15.701,35-35v-14.977h-210v14.977
@@ -30,17 +31,20 @@
                 </svg>
                 <nav id="burger-nav">
                     <?php
-                        if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]){
-                            echo '<a id="deconnect-burger" href="https://taberu.baptistegrimaldi.info/logout" class="underlined">Se deconnecter</a>';
+                        if(isset($_SESSION["loggedin"])){
+                            if ($_SESSION["loggedin"]) {
+                                echo '<a id="deconnect-burger" href=" /logout" class="underlined">Se deconnecter</a>';
+                            }
                         }
                     ?>
-                    <a href="https://taberu.baptistegrimaldi.info/" class="underlined <?php active('');?>">Accueil</a>
-                    <a href="https://taberu.baptistegrimaldi.info/recettes" class="underlined <?php active('recettes');?>">Recettes</a>
-                    <a href="https://taberu.baptistegrimaldi.info/forum" class="underlined <?php active('forum');?>">Forum</a>
-                    <a href="https://taberu.baptistegrimaldi.info/compte" class="underlined <?php active('compte');?>">Compte</a>
+                    <a href="/" class="underlined <?php active('');?>">Accueil</a>
+                    <a href=" /recettes" class="underlined <?php active('recettes');?>">Recettes</a>
+                    <a href=" /compte" class="underlined <?php active('compte');?>">Compte</a>
                     <?php
-                        if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]){
-                            echo '<a href="https://taberu.baptistegrimaldi.info/modifications" class="underlined">modifications</a>';
+                        if(isset($_SESSION["loggedin"])){
+                            if ($_SESSION["loggedin"]) {
+                                echo '<a href=" /modifications" class="underlined">modifications</a>';
+                            }
                         }
                     ?>
                 </nav>
