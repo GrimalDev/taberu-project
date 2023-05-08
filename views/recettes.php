@@ -14,7 +14,12 @@ function cardTemplate($title, $description, $stars) {
 
 function generateCards($rows) {
     foreach ($rows as $row) {
-        cardTemplate($row['title'], $row['description'], $row['stars']);
+        $description = $row['description'];
+        //limit description to 30 characters
+        if (strlen($description) > 30) {
+            $description = substr($description, 0, 30) . '...';
+        }
+        cardTemplate($row['title'], $description, $row['stars']);
     }
 }
 
