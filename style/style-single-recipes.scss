@@ -18,13 +18,12 @@ h1 {
   margin-left: 10vw;
 }
 
-h2, #recipes-single-card-container__content {
+h2, p {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
 }
 
 h2 {
   text-align: center;
-  padding: 0 2rem;
 }
 
 #recipes-single-card-container {
@@ -32,7 +31,7 @@ h2 {
   height: fit-content;
   display: flex;
   justify-content: center;
-  #recipes-single-card-container__content {
-    width: 70%;
+  p {
+    flex-basis: 70%;
   }
 }

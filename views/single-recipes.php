@@ -45,9 +45,7 @@ function getRecipesCategory($category) {
 
     <h1>Recette:</h1>
     <div id="recipes-single-card-container">
-        <div id="recipes-single-card-container__content">
-            <?php getRecipesCategory('recipes') ?>
-        </div>
+        <p><?php getRecipesCategory('recipes') ?></p>
     </div>
 </main>
 <!--Get footer template-->
