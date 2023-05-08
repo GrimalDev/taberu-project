@@ -172,8 +172,7 @@ select:hover, option:hover {
   align-items: center;
   gap: 0.3rem;
   height: 12rem;
-  min-width: fit-content;
-  width: 15rem;
+  flex-basis: 20%;
   padding: 0.5rem;
   background-color: #f66b0e;
   border-radius: 10px;
@@ -376,12 +375,13 @@ h1 {
   margin-left: 10vw;
 }
 
-h2, p {
+h2, #recipes-single-card-container__content {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
 }
 
 h2 {
   text-align: center;
+  padding: 0 2rem;
 }
 
 #recipes-single-card-container {
@@ -390,8 +390,8 @@ h2 {
   display: flex;
   justify-content: center;
 }
-#recipes-single-card-container p {
-  flex-basis: 70%;
+#recipes-single-card-container #recipes-single-card-container__content {
+  width: 70%;
 }
 
 /*# sourceMappingURL=style-single-recipes.css.map */
