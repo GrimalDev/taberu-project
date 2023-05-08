@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="183a9112-e07a-465a-a4fc-93aa450a215f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/addRecepiesTaberu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db-config.example.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db-config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/redirection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/script-general.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/script-home-map.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/script-user-space.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/FSLA_NonCommercial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/Get Commercial License.url" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/Gooseberry Juice.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/Gooseberry Juice.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/ffonts.net.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/ffonts.net.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/install-a-new-font.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Gooseberry-Juice/quick_tips.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Maagkramp/ffonts.net.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Maagkramp/ffonts.net.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Maagkramp/install-a-new-font.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Maagkramp/maagkramp.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/fonts/Maagkramp/quick_tips.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/Asia-Map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/TaBeRu-solid-fit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/TaBeRu-solid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/TaBeRu-transparent-fit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/TaBeRu-transparent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/burger-svg.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/Food-05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/food-01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/food-02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/food-03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/food-04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/food-06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/food-07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/food-08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/food-images/noodles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/noodle-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/taberu-titre.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/media/taberu-titre.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-common.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-common.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-compte.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-compte.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-compte.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-contact.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-contact.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-contact.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-forum.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-forum.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-forum.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-home.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-home.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-modifications.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-modifications.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-modifications.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-recettes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-recettes.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-recettes.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-register-connection.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-register-connection.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-register-connection.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-single-recipes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-single-recipes.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-single-recipes.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/404.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/connection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/contact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forum.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/logout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/modifications.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/recettes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/recipes-modify.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/register.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/single-recipes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/support.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user-space.php" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5a6dc145-f62b-41c3-8865-f9fe9fedf9c1" />
+        <option name="url" value="https://github.com/GrimalDev/taberu-project" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2.4" />
+  <component name="ProjectId" id="2NXcDygJhtBLkDTrbSXADALBPwf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/style" />
+      <recent name="$PROJECT_DIR$/views/partials" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Taberu test" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8080">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="183a9112-e07a-465a-a4fc-93aa450a215f" name="Changes" comment="gitignore idea files" />
+      <created>1679813754079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679813754079</updated>
+      <workItem from="1679813755410" duration="1387000" />
+      <workItem from="1680341153542" duration="654000" />
+      <workItem from="1680676450521" duration="570000" />
+      <workItem from="1680721224596" duration="32000" />
+      <workItem from="1683560012987" duration="4595000" />
+    </task>
+    <task id="LOCAL-00001" summary="chat gpt generate recipes&#10;&#10;SQL INSERT with the recipes generated by chatgpt">
+      <created>1679814019200</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679814019200</updated>
+    </task>
+    <task id="LOCAL-00002" summary="recipes limited description in preview">
+      <created>1679814041473</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679814041473</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Styling changes&#10;&#10;-404 page now has a Header and footer&#10;-Connection and register pages now have a header">
+      <created>1683564160650</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683564160650</updated>
+    </task>
+    <task id="LOCAL-00004" summary="delete out of project image">
+      <created>1683564249933</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683564249933</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chat gpt generate recipes&#10;&#10;SQL INSERT with the recipes generated by chatgpt" />
+    <MESSAGE value="recipes limited description in preview" />
+    <MESSAGE value="Styling changes&#10;&#10;-404 page now has a Header and footer&#10;-Connection and register pages now have a header" />
+    <MESSAGE value="delete out of project image" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete out of project image" />
+  </component>
+</project>
