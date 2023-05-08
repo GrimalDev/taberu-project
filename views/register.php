@@ -61,7 +61,7 @@ function sendDataDB() { // process the data coming from the form
             return "Un compte est déja associé à cette email";
         }
     }
-    redirect('https://taberu.baptistegrimaldi.info/connection');
+    redirect(' /connection');
 }
 
 $FORM_ERRORS = isFormValidated();
@@ -77,25 +77,29 @@ $FORM_ERRORS = isFormValidated();
 
     <link type="text/css" rel="stylesheet" href="../style/style-register-connection.css">
     <link rel="shortcut icon" type="image/jpg" href="../style/media/TaBeRu-solid-fit.png"/>
+
+    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
 </head>
 <body>
+    <!--Get header template-->
+    <?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
 
-<header>
-    <h1>S'inscrire</h1>
-    <a href="https://taberu.baptistegrimaldi.info/connection"><h1>Se connecter</h1></a>
-</header>
-<main>
-    <form action="/enregistrement" method="post">  <!--TODO implement form animation-->
-        <div><pre><?php echo $FORM_ERRORS; ?></pre></div>
-        <input type="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
-        <input type="email" name="email" placeholder="Entrez votre e-mail" required>
-        <input type="password" name="password" placeholder="Entrez votre mot de passe" required>
-        <input type="password" name="password-confirm" placeholder="Confirmer votre mot de passe" required> <!--TODO add view password button-->
-        <input type="submit" name="submit" value="S'inscrire">
-    </form>
-</main>
-<!--Get footer template-->
-<?php include realpath(dirname(__FILE__).'/footer.html')?>
+    <div class="authentication-nav">
+        <h1>S'inscrire</h1>
+        <a href=" /connection"><h1>Se connecter</h1></a>
+    </div>
+    <main>
+        <form action="/enregistrement" method="post">  <!--TODO implement form animation-->
+            <div><pre><?php echo $FORM_ERRORS; ?></pre></div>
+            <input type="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
+            <input type="email" name="email" placeholder="Entrez votre e-mail" required>
+            <input type="password" name="password" placeholder="Entrez votre mot de passe" required>
+            <input type="password" name="password-confirm" placeholder="Confirmer votre mot de passe" required> <!--TODO add view password button-->
+            <input type="submit" name="submit" value="S'inscrire">
+        </form>
+    </main>
+    <!--Get footer template-->
+    <?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
 </body>
 </html>
 

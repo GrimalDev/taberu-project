@@ -59,7 +59,7 @@ function sendDataDB($connectWithUsername) { // process the data coming from the 
     $_SESSION['sess_user_id'] = $row['id'];
     $_SESSION['sess_user_name'] = $row['username'];
 
-    redirect('https://taberu.baptistegrimaldi.info/compte');
+    redirect(' /compte');
 }
 
 $FORM_ERRORS = isFormValidated();
@@ -76,24 +76,28 @@ $FORM_ERRORS = isFormValidated();
     <link type="text/css" rel="stylesheet" href="../style/style-register-connection.css">
     <link type="text/css" rel="stylesheet" href="../style/style-common.css">
     <link rel="shortcut icon" type="image/jpg" href="../style/media/TaBeRu-solid-fit.png"/>
+
+    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
 </head>
 <body>
+    <!--Get header template-->
+    <?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
 
-<header>
-    <h1>Se connecter</h1>
-    <a href="https://taberu.baptistegrimaldi.info/enregistrement"><h1>S'inscrire</h1></a>
-</header>
-<main>
-    <!--TODO Custom field required note html-->
-    <form action="/connection" method="post">  <!--TODO implement form animation-->
-        <div><pre><?php echo $FORM_ERRORS; ?></pre></div>
-        <input type="text" name="auth" placeholder="Entrez votre e-mail" required>
-        <input type="password" name="password" placeholder="Entrez votre mot de passe" required>
-        <input type="submit" name="submit" value="Se connecter">
-    </form>
-</main>
-<!--Get footer template-->
-<?php include realpath(dirname(__FILE__).'/footer.html')?>
+    <div class="authentication-nav">
+        <h1>Se connecter</h1>
+        <a href=" /enregistrement"><h1>S'inscrire</h1></a>
+    </div>
+    <main>
+        <!--TODO Custom field required note html-->
+        <form action="/connection" method="post">  <!--TODO implement form animation-->
+            <div><pre><?php echo $FORM_ERRORS; ?></pre></div>
+            <input type="text" name="auth" placeholder="Entrez votre e-mail" required>
+            <input type="password" name="password" placeholder="Entrez votre mot de passe" required>
+            <input type="submit" name="submit" value="Se connecter">
+        </form>
+    </main>
+    <!--Get footer template-->
+    <?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
 
 </body>
 </html>

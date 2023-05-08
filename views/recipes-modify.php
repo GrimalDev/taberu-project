@@ -5,7 +5,7 @@ require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 session_start();
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    redirect('https://taberu.baptistegrimaldi.info/connection');
+    redirect(' /connection');
     exit;
 }
 
@@ -111,7 +111,7 @@ function getRecipesInfos($info) {
 </head>
 <body>
 <!--Get header template-->
-<?php include realpath(dirname(__FILE__).'/header.php')?>
+<?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
 <main>
     <h1>Titre:</h1>
     <h2><?php getRecipesCategory('title') ?></h2>
@@ -153,6 +153,6 @@ function getRecipesInfos($info) {
     </center>
 </main>
 <!--Get footer template-->
-<?php include realpath(dirname(__FILE__).'/footer.html')?>
+<?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
 </body>
 </html>

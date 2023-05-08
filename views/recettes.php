@@ -5,7 +5,7 @@ require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
 session_start();
 
 function cardTemplate($title, $description, $stars) {
-    echo '<a class="generated-card" href=https://taberu.baptistegrimaldi.info/recette-detail?recipes='.urlencode($title).'>
+    echo '<a class="generated-card" href= /recette-detail?recipes='.urlencode($title).'>
             <h2>'.$title.'</h2>
             <h3>'.$description.'</h3>
             <h4>'.$stars.'</h4>
@@ -55,7 +55,7 @@ function displayAllRecipes($country) {
 </head>
 <body>
     <!--Get header template-->
-    <?php include realpath(dirname(__FILE__) . '/header.php')?>
+    <?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
     <main>
         <div id="relative-circle-animation-container" class="">
             <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -88,6 +88,6 @@ function displayAllRecipes($country) {
     </main>
     <!--TODO add a big card that displays with the recipes-->
     <!--Get footer template-->
-    <?php include realpath(dirname(__FILE__).'/footer.html')?>
+    <?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
 </body>
 </html>

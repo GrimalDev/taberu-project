@@ -5,7 +5,7 @@ require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 session_start();
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    redirect('https://taberu.baptistegrimaldi.info/connection');
+    redirect(' /connection');
     exit;
 }
 
@@ -65,7 +65,7 @@ function sendDataDB() { // process the data coming from the form
 $FORM_ERRORS = isFormValidated();
 
 function cardTemplate($title, $description, $stars) {
-    echo '<a class="generated-card" href=https://taberu.baptistegrimaldi.info/modifier-recette?recipes='.urlencode($title).'>
+    echo '<a class="generated-card" href= /modifier-recette?recipes='.urlencode($title).'>
             <h2>'.$title.'</h2>
             <h3>'.$description.'</h3>
             <h4>'.$stars.'</h4>
@@ -111,7 +111,7 @@ function displayAllRecipes() {
 </head>
 <body>
 <!--Get header template-->
-<?php include realpath(dirname(__FILE__).'/header.php')?>
+<?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
 <main>
     <h1>Ajouter ma recette</h1>
     <form action="/compte" method="post">
@@ -143,6 +143,6 @@ function displayAllRecipes() {
     </div>
 </main>
 <!--Get footer template-->
-<?php include realpath(dirname(__FILE__).'/footer.html')?>
+<?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
 </body>
 </html>

@@ -11,7 +11,7 @@
 </head>
 <body>
     <!--Get header template-->
-    <?php include realpath(dirname(__FILE__) . '/header.php')?>
+    <?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
 
     <main>
         <form action="/contact" method="post">
@@ -40,6 +40,6 @@
     </main>
 
     <!--Get footer template-->
-    <?php include realpath(dirname(__FILE__).'/footer.html')?>
+    <?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
 </body>
 </html>
