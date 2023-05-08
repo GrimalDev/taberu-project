@@ -8,4 +8,4 @@ The website is a participative asian cooking recipes plateform.
 ---
 
 ###   LICENSING
-#### **Under *[Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)* license**
+#### **Under *[GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)* license**

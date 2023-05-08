@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="183a9112-e07a-465a-a4fc-93aa450a215f" name="Changes" comment="styling changes to register and connection page">
+    <list default="true" id="183a9112-e07a-465a-a4fc-93aa450a215f" name="Changes" comment="contry changes in gpt prompt">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/addRecepiesTaberu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/addRecepiesTaberu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683566454495</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="contry changes in gpt prompt">
+      <created>1683566578715</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683566578715</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +198,7 @@
     <MESSAGE value="styling changes 404" />
     <MESSAGE value="header and footer now in partial folder" />
     <MESSAGE value="styling changes to register and connection page" />
-    <option name="LAST_COMMIT_MESSAGE" value="styling changes to register and connection page" />
+    <MESSAGE value="contry changes in gpt prompt" />
+    <option name="LAST_COMMIT_MESSAGE" value="contry changes in gpt prompt" />
   </component>
 </project>
