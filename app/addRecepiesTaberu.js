@@ -12,13 +12,17 @@ async function callOpenAiApi() {
         
         Le nom de la table est : recettes
         Toutes les recettes doivent êtres véganes. Donc sans poisson, produits animalier ou viande. Génère une autre recette d'un des pays que je t'ai donnés.
-        Tu indiques le pays choisi selon la table de correspondance et l'indiques dans la requête. Donne des titres précis et des descriptions qui donnent envie. L'utilisateur est GrimalDev. Le stars et a NULL par défaut donc ne le renseigne pas. Ne renseigne pas par l'id et la creation date, ils sont crées automatiquement, les retours à la ligne sont des <br>. Egalement n'utilise que des doubles quotes " pour les textes. La requête sql doit être conforme à l’exemple plus bas.
+        Tu indiques le pays choisi selon la table de correspondance et l'indiques dans la requête.
+        Donne des titres précis et des descriptions qui donnent envie. L'utilisateur est GrimalDev.
+        Le stars et a NULL par défaut donc ne le renseigne pas. Ne renseigne pas par l'id et la creation date, ils sont crées automatiquement, les retours à la ligne sont des <br>.
+        Egalement n'utilise que des doubles quotes " pour les textes.
+        La requête sql doit être conforme à l’exemple plus bas.
         
         Voici la liste des pays de recettes possibles :
         
-
+        Thaïlande : 'thailand'
+        Chine : 'china'
         Japon : 'japan'
-
         Inde : 'india'
         
         Exemple de requête:
