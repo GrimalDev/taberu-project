@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="../style/style-forum.css" type="text/css">
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 
 </head>
 <body>

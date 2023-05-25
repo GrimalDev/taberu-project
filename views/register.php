@@ -76,7 +76,7 @@ $FORM_ERRORS = isFormValidated();
 
     <link type="text/css" rel="stylesheet" href="../style/style-register-connection.css">
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 </head>
 <body>
     <!--Get header template-->

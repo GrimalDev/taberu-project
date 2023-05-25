@@ -100,7 +100,7 @@ $FORM_ERRORS = isFormValidated();
 
     <link rel="stylesheet" href="../style/style-modifications.css" type="text/css">
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 
 </head>
 <body>

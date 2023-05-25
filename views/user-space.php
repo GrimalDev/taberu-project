@@ -96,7 +96,7 @@ function displayAllRecipes() {
 
     <link rel="stylesheet" href="../style/style-user-space.css" type="text/css">
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
     <script defer src="../scripts/script-user-space.js" type="application/javascript"></script>
 
 </head>

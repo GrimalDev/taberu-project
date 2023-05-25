@@ -7,7 +7,7 @@
 
     <title>Not Found</title>
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 </head>
 <body>
     <!--Get header template-->

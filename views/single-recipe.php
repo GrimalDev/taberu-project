@@ -16,7 +16,7 @@ $recipeExists = $mainRecipe->getRecipeByTitle($_GET['recipe']);
 
     <link rel="stylesheet" href="../style/style-single-recipe-modify.css" type="text/css">
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 
 </head>
 <body>

@@ -51,7 +51,7 @@ function displayAllRecipes($country): void
 
     <link rel="stylesheet" href="../style/style-recettes.css" type="text/css">
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 
 </head>
 <body>
