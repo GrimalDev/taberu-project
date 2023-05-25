@@ -366,14 +366,8 @@ a.underlined.nav-txt-active::after {
 /*---------GENERAL STUFF----*/
 /*--------MAIN----------*/
 main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form {
-  width: 50%;
+  height: fit-content;
+  padding: 2rem 0 2rem 0;
 }
 
 h1 {
@@ -382,15 +376,22 @@ h1 {
   margin-left: 10vw;
 }
 
-.char-counter {
+h2, p {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
 }
 
-/*-----------RESPONSIVE--------------*/
-@media (max-width: 1023px) {
-  h1 {
-    text-align: center;
-  }
+h2 {
+  text-align: center;
 }
 
-/*# sourceMappingURL=style-compte.css.map */
+#recipes-single-card-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+#recipes-single-card-container p {
+  flex-basis: 70%;
+}
+
+/*# sourceMappingURL=style-single-recipe.css.map */

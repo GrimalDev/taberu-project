@@ -4,13 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="183a9112-e07a-465a-a4fc-93aa450a215f" name="Changes" comment="logo image bug fix on register and connection pages">
+    <list default="true" id="183a9112-e07a-465a-a4fc-93aa450a215f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/android-chrome-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android-chrome-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/recipe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/user.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site.webmanifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/media/flags/china-flag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/media/flags/india-flag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/media/flags/japan-flag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/media/flags/thailand-flag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/style-single-recipe.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/head.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/recipe-modify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style-contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-contact.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style-contact.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-contact.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style-contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-contact.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/addRecepiesTaberu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/addRecepiesTaberu.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/db-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-404.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-404.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-404.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-404.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-compte.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-user-space.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-compte.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-user-space.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-compte.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-user-space.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-contact.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-contact.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-forum.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-forum.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-forum.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-forum.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-home.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-home.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-home.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-modifications.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-modifications.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-modifications.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-modifications.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-recettes.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-recettes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-recettes.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-recettes.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-register-connection.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-register-connection.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-register-connection.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-register-connection.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-single-recipes.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-single-recipe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-single-recipes.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-single-recipe.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/style-single-recipes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/style-single-recipe-modify.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/connection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forum.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/forum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/modifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/modifications.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/recettes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/recipes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/recipes-modify.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/single-recipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/single-recipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user-space.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user-space.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +116,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "NewWatcherDialog.advanced.open": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
@@ -72,25 +125,47 @@
     "WebServerToolWindowPanel.toolwindow.show.date": "false",
     "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "last_opened_file_path": "/Users/thehiddengeek/PhpstormProjects/taberu",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "web.server",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "JavaScript.Libraries",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/style/media/flags" />
+      <recent name="$PROJECT_DIR$/style" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/views/partials" />
       <recent name="$PROJECT_DIR$/style" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.createGPTRecipes">
+    <configuration name="createGPTRecipes" type="NodeJSConfigurationType" path-to-node="$USER_HOME$/.nvm/versions/node/v18.12.1/bin/node" path-to-js-file="app/addRecepiesTaberu.mjs" working-dir="$PROJECT_DIR$">
+      <envs>
+        <env name="OPENAI_API_KEY" value="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" />
+      </envs>
+      <method v="2" />
+    </configuration>
     <configuration name="Taberu test" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="3030">
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Node.js.createGPTRecipes" />
+      <item itemvalue="PHP Built-in Web Server.Taberu test" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -105,6 +180,16 @@
       <workItem from="1680676450521" duration="570000" />
       <workItem from="1680721224596" duration="32000" />
       <workItem from="1683560012987" duration="4595000" />
+      <workItem from="1683736909327" duration="19963000" />
+      <workItem from="1684007331972" duration="740000" />
+      <workItem from="1684008088920" duration="3632000" />
+      <workItem from="1684433033215" duration="4328000" />
+      <workItem from="1684618558768" duration="2130000" />
+      <workItem from="1684740691663" duration="1913000" />
+      <workItem from="1684775501925" duration="16345000" />
+      <workItem from="1684956723391" duration="2480000" />
+      <workItem from="1684999982950" duration="89000" />
+      <workItem from="1685006169401" duration="561000" />
     </task>
     <task id="LOCAL-00001" summary="chat gpt generate recipes&#10;&#10;SQL INSERT with the recipes generated by chatgpt">
       <created>1679814019200</created>
@@ -190,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683567337290</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="contact page front end">
+      <created>1683569239567</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683569239567</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +299,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
@@ -232,7 +324,8 @@
     <MESSAGE value="licences changes&#10;&#10;Apache 2.0 to GNU GPL v3" />
     <MESSAGE value="gitignore dumb files" />
     <MESSAGE value="logo image bug fix on register and connection pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="logo image bug fix on register and connection pages" />
+    <MESSAGE value="contact page front end" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact page front end" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

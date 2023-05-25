@@ -29,6 +29,22 @@ h1 {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
 }
 
+#all-generated-cards {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 90%;
+  .generated-card {
+    flex-basis: 30% !important;
+    width: 30% !important;
+    min-width: unset !important;
+    background-color: $taberu-white;
+    box-shadow: $taberu-orange 1px 1px 2px 2px;
+  }
+}
+
 /*-----------RESPONSIVE--------------*/
 
 @media (max-width: 1023px) {

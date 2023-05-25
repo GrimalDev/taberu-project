@@ -1,14 +1,17 @@
+<?php
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include realpath(dirname(__FILE__) . '/partials/head.php')?>
 
     <title>Taberu Contact</title>
 
     <link type="text/css" rel="stylesheet" href="../style/style-contact.css">
-    <link rel="shortcut icon" type="image/jpg" href="../style/media/TaBeRu-solid-fit.png"/>
 </head>
 <body>
     <!--Get header template-->
