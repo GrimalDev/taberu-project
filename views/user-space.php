@@ -1,10 +1,20 @@
 <?php
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
 require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
+require(realpath(dirname(__FILE__) . '/../app/controllers/recipe.php'));
+require(realpath(dirname(__FILE__) . '/../app/controllers/user.php'));
 
 session_start();
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    redirect(' /connection');
+    exit;
+}
+
+$connectedUser = new user();
+$userProtector = $connectedUser->getUserById($_SESSION['sess_user_id']);
+
+if ($userProtector === null) {
     redirect(' /connection');
     exit;
 }
@@ -16,12 +26,12 @@ function isFormValidated() { // check for validated form, get variables, and exe
 
     if (!isset($_POST["submit"])) { return; }
 
-    if (!isset($_POST['country']) && !isset($_POST["title"]) && !isset($_POST["description"]) && !isset($_POST["recipes"])) { return "Veuillez renseigner tout les champs"; };
+    if (!isset($_POST['country']) && !isset($_POST["title"]) && !isset($_POST["description"]) && !isset($_POST["recipeBody"])) { return "Veuillez renseigner tout les champs"; };
 
     //define all the required global constances
     define("FORM_TITLE", $_POST["title"]);
     define("FORM_DESCRIPTION", $_POST["description"]);
-    define("FORM_RECIPES", $_POST["recipes"]);
+    define("FORM_RECIPEBODY", $_POST["recipeBody"]);
     define("FORM_COUNTRY", $_POST["country"]);
 
     return verifyFormData();
@@ -36,39 +46,32 @@ function verifyFormData() {
 }
 
 function sendDataDB() { // process the data coming from the form
-    $DBpdo = connectDB();
-    $DBtablename = 'recettes';
-    $title = FORM_TITLE;
-    $description = FORM_DESCRIPTION;
-    $recipes = strtr(FORM_RECIPES, array("\r\n" => '<br />', "\r" => '<br />', "\n" => '<br />'));
-    $username = $_SESSION['sess_user_name'];
-    $country = FORM_COUNTRY;
+    global $connectedUser;
 
-    try {
-        $query = $DBpdo->prepare("INSERT INTO `$DBtablename` (`title`, `description`, `recipes`, `country`, `addedby`) VALUES (:title, :description, :recipes, :country, :addedby)");
-        $query->bindParam(':title', $title); // default PDO::PARAM_STR
-        $query->bindParam(':description', $description); // default PDO::PARAM_STR
-        $query->bindParam(':recipes', $recipes); // default PDO::PARAM_STR
-        $query->bindParam(':addedby', $username); // default PDO::PARAM_STR
-        $query->bindParam(':country', $country); // default PDO::PARAM_STR
+    $newRecipe = new recipe();
 
-        $query->execute();
+    $newRecipe->setTitle(FORM_TITLE);
+    $newRecipe->setDescription(FORM_DESCRIPTION);
+    $newRecipe->setRecipeBody(FORM_RECIPEBODY);
+    $newRecipe->setCountry(FORM_COUNTRY);
+    $newRecipe->setCreatorName($connectedUser->getUsername());
 
-        return "Recette Enregistrée!";
-    } catch (PDOException $e) {
-        if ($e->errorInfo[1] == 1062) {
-            echo "Ce titre éxiste déja!";
-        }
+    $message = $newRecipe->addRecipe();
+
+    if ($message !== true) {
+        return $message;
     }
+
+    return "La recette a bien été ajoutée";
 }
 
 $FORM_ERRORS = isFormValidated();
 
 function cardTemplate($title, $description, $stars) {
-    echo '<a class="generated-card" href= /modifier-recette?recipes='.urlencode($title).'>
-            <h2>'.$title.'</h2>
-            <h3>'.$description.'</h3>
-            <h4>'.$stars.'</h4>
+    echo '<a class="generated-card" href= /modifier-recette?recipe='.urlencode($title).'>
+            <span class="card-title">'.$title.'</span>
+            <span class="card-description">'.$description.'</span>
+            <span class="card-stars">'.$stars.'</span>
           </a>';
 } // TODO Stars system
 
@@ -79,33 +82,21 @@ function generateCards($rows) {
 }
 
 function displayAllRecipes() {
-    $DBpdo = connectDB();
-    $DBtablename = 'recettes';
-    $username = $_SESSION['sess_user_name'];
+    global $connectedUser;
 
-    try {
-        $query = $DBpdo->prepare("SELECT * FROM `$DBtablename` WHERE `addedby` = :username");
-        $query->bindParam(':username', $username);
-        $query->execute();
-        $rows = $query->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
-        generateCards($rows);
-    } catch (PDOException $e) {
-        echo $e;
-    }
+    generateCards(recipe::getRecipesByUser($connectedUser->getUsername()));
 }
 ?>
 
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <?php include realpath(dirname(__FILE__) . '/partials/head.php')?>
+
     <title>TaBeRu compte</title>
 
-    <link rel="stylesheet" href="../style/style-compte.css" type="text/css">
-    <link rel="shortcut icon" type="image/jpg" href="../style/media/TaBeRu-solid-fit.png"/>
+    <link rel="stylesheet" href="../style/style-user-space.css" type="text/css">
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
     <script defer src="../scripts/script-user-space.js" type="application/javascript"></script>
 
 </head>
@@ -132,7 +123,7 @@ function displayAllRecipes() {
         <label for="description-counter-input">Charactères restants: <span id="description-char-count" class="char-counter">50/50</span></span></label>
         <input id="description-counter-input" name="description" type="text" placeholder="Description de ma recette">
 
-        <textarea name="recipes" cols="30" rows="40" placeholder="Ma recette points par points"></textarea>
+        <textarea name="recipeBody" cols="30" rows="40" placeholder="Ma recette points par points"></textarea>
 
         <input name="submit" type="submit" value="Publier">
 

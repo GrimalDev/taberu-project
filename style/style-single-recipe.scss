@@ -1,0 +1,92 @@
+/*THIS IS THE SASS STYLE SHEET OF THE COMPTE PAGE*/
+
+/*---------IMPORTS----------*/
+
+@import 'style-common';
+
+/*---------GENERAL STUFF----*/
+
+/*--------MAIN----------*/
+main {
+  height:fit-content;
+  padding: 2rem 0 2rem 0;
+  width: 100%;
+}
+
+.section-container {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 3rem;
+  .section-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background-color: $taberu-blue;
+    width: 90vw;
+    padding: .5rem 0 .5rem 1rem;
+    font-size: 1.5rem;
+    color: $taberu-black;
+    border-radius: 1rem 0 0 0;
+    font-weight: 600;
+    box-shadow: $taberu-blue 0 0 2px 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .section-title, .section-title-content {
+    font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+  }
+
+  .section-title-content {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 0 1rem 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+
+.country-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  gap: .5rem;
+  padding-inline: 1rem;
+  color: $taberu-black;
+  font-weight: 400;
+  font-size: 1.5rem;
+  img {
+    height: 2rem;
+  }
+}
+
+#recipes-single-card-container {
+  width: 90vw;
+  align-self: flex-end;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  min-height: 300px;
+  p {
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+
+.recipe-single-card-text {
+  width: 90%;
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+}

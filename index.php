@@ -20,13 +20,13 @@ switch ($urlpath) {
         require __DIR__ . '/views/modifications.php';
         break;
     case '/recettes' :
-        require __DIR__ . '/views/recettes.php';
+        require __DIR__ . '/views/recipes.php';
         break;
     case '/recette-detail' :
-        require __DIR__ . '/views/single-recipes.php';
+        require __DIR__ . '/views/single-recipe.php';
         break;
     case '/modifier-recette' :
-        require __DIR__ . '/views/recipes-modify.php';
+        require __DIR__ . '/views/recipe-modify.php';
         break;
     case '/support' :
         require __DIR__ . '/views/support.php';
@@ -40,6 +40,7 @@ switch ($urlpath) {
     case '/logout' :
         require __DIR__ . '/views/logout.php';
         break;
+
     default:
         http_response_code(404);
         require __DIR__ . '/views/404.php';

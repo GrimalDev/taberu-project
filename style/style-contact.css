@@ -112,7 +112,7 @@ form {
 input[type=submit] {
   width: 35%;
   border: 2px solid transparent;
-  background: #f66b0e;
+  background: rgb(246, 107, 14);
 }
 input[type=submit]:hover {
   background-color: #efefef;
@@ -124,7 +124,7 @@ input, textarea {
   border-radius: 0.5rem;
 }
 input:not(input[type=submit]), textarea:not(input[type=submit]) {
-  border: 1px solid #f66b0e;
+  border: 1px solid rgb(246, 107, 14);
   width: 100%;
 }
 
@@ -134,7 +134,7 @@ input, textarea {
   color: rgba(17, 43, 60, 0.7);
 }
 input:hover::placeholder, textarea:hover::placeholder {
-  color: #f66b0e;
+  color: rgb(246, 107, 14);
 }
 input::placeholder, textarea::placeholder {
   font-family: Maagkramp, sans-serif;
@@ -144,14 +144,14 @@ select, option {
   background-color: #efefef;
   color: rgba(17, 43, 60, 0.44);
   height: 2.2rem;
-  border: 1px solid #f66b0e;
+  border: 1px solid rgb(246, 107, 14);
   padding: 0.5rem;
   border-radius: 0.5rem;
   font-family: Maagkramp, sans-serif;
   font-size: 1.2rem;
 }
 select:hover, option:hover {
-  color: #f66b0e;
+  color: rgb(246, 107, 14);
 }
 
 .all-generated-cards {
@@ -170,17 +170,31 @@ select:hover, option:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
   height: 12rem;
   min-width: fit-content;
   width: 15rem;
   padding: 0.5rem;
-  background-color: #f66b0e;
+  background-color: rgb(246, 107, 14);
   border-radius: 10px;
+  border: 2px solid transparent;
+}
+.generated-card .card-title {
+  font-size: 1.3rem;
+  font-weight: bold !important;
+  height: 3rem;
+  overflow: hidden;
+}
+.generated-card .card-description {
+  font-weight: normal !important;
+  height: 7rem;
+  overflow: hidden;
 }
 .generated-card:hover {
-  opacity: 0.7;
   cursor: pointer;
+  background-color: #efefef;
+  border: 2px solid rgb(246, 107, 14);
+  color: rgb(246, 107, 14);
 }
 
 /*-----------FOOTER------------*/
@@ -203,7 +217,7 @@ footer a:hover {
   opacity: 0.7;
 }
 footer a:active {
-  color: #f66b0e;
+  color: rgb(246, 107, 14);
 }
 
 #footer_infos_container {
@@ -250,17 +264,17 @@ a.underlined::after {
   background-color: transparent;
 }
 a.underlined:hover::after {
-  background-color: #f66b0e;
+  background-color: rgb(246, 107, 14);
 }
 a.underlined.nav-txt-active::after {
-  background-color: #f66b0e;
+  background-color: rgb(246, 107, 14);
 }
 
 #animated-burger {
   fill: #112b3c;
 }
 #animated-burger:hover {
-  fill: #f66b0e;
+  fill: rgb(246, 107, 14);
 }
 
 .burger-active {
@@ -365,5 +379,60 @@ a.underlined.nav-txt-active::after {
 }
 /*---------GENERAL STUFF----*/
 /*--------MAIN----------*/
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 5rem - 3.34em);
+  width: clamp(300px, 60%, 900px);
+}
+main #contact-form {
+  margin-top: 15vh;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+main #contact-form > * {
+  width: 100%;
+}
+main #contact-form .form__action-button {
+  width: 10rem;
+  margin: 0 auto;
+  cursor: pointer;
+}
+main #contact-form .form__action-button[type=submit] {
+  background-color: rgb(246, 107, 14);
+  color: #efefef;
+}
+main #contact-form .form__action-button[type=submit]:hover {
+  background-color: #efefef;
+  color: rgb(246, 107, 14) !important;
+}
+main #contact-form .form__action-button[type=reset]:hover {
+  background-color: rgb(246, 107, 14);
+  color: #efefef;
+}
+main #contact-form .form__action-button[type=reset]:hover:hover {
+  background-color: rgb(246, 107, 14);
+  color: #efefef !important;
+}
+main #contact-form #form-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/*--------RESPONSIVE----------*/
+@media screen and (max-width: 768px) {
+  main {
+    width: 100%;
+  }
+  main #contact-form {
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=style-contact.css.map */

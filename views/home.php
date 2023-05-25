@@ -3,15 +3,13 @@
 ?>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <?php include realpath(dirname(__FILE__) . '/partials/head.php')?>
+
     <title>TaBeRu</title>
 
     <link rel="stylesheet" href="../style/style-home.css" type="text/css">
-    <link rel="shortcut icon" type="image/jpg" href="../style/media/TaBeRu-solid-fit.png"/>
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

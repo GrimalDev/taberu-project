@@ -4,15 +4,17 @@ require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
 
 session_start();
 
-function cardTemplate($title, $description, $stars) {
-    echo '<a class="generated-card" href= /recette-detail?recipes='.urlencode($title).'>
-            <h2>'.$title.'</h2>
-            <h3>'.$description.'</h3>
-            <h4>'.$stars.'</h4>
+function cardTemplate($title, $description, $stars): void
+{
+    echo '<a class="generated-card" href= /recette-detail?recipe='.urlencode($title).'>
+            <span class="card-title">'.$title.'</span>
+            <span class="card-description">'.$description.'</span>
+            <span class="card-stars">'.$stars.'</span>
           </a>';
 } // TODO Stars system
 
-function generateCards($rows) {
+function generateCards($rows): void
+{
     foreach ($rows as $row) {
         $description = $row['description'];
         //limit description to 30 characters
@@ -23,7 +25,8 @@ function generateCards($rows) {
     }
 }
 
-function displayAllRecipes($country) {
+function displayAllRecipes($country): void
+{
     $DBpdo = connectDB();
     $DBtablename = 'recettes';
 
@@ -42,15 +45,13 @@ function displayAllRecipes($country) {
 
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <?php include realpath(dirname(__FILE__) . '/partials/head.php')?>
+
     <title>TaBeRu</title>
 
     <link rel="stylesheet" href="../style/style-recettes.css" type="text/css">
-    <link rel="shortcut icon" type="image/jpg" href="../style/media/TaBeRu-solid-fit.png"/>
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 
 </head>
 <body>
@@ -86,7 +87,7 @@ function displayAllRecipes($country) {
             </div>
         </div>
     </main>
-    <!--TODO add a big card that displays with the recipes-->
+    <!--TODO add a big card that displays with the recipe-->
     <!--Get footer template-->
     <?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
 </body>

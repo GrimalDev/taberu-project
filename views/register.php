@@ -70,15 +70,13 @@ $FORM_ERRORS = isFormValidated();
 
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <?php include realpath(dirname(__FILE__) . '/partials/head.php')?>
+
     <title>TaBeRu Register</title>
 
     <link type="text/css" rel="stylesheet" href="../style/style-register-connection.css">
-    <link rel="shortcut icon" type="image/jpg" href="../style/media/TaBeRu-solid-fit.png"/>
 
-    <script defer src="../scripts/script-general.js" type="application/javascript"></script>
+    
 </head>
 <body>
     <!--Get header template-->

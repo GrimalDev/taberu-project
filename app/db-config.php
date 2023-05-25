@@ -1,5 +1,5 @@
 <?php
-const DB_HOST = 'mariadb';
+const DB_HOST = 'srv.grimaldev.local';
 const DB_USERNAME = 'taberu-com';
 const DB_PASSWORD = 'jsm8kD3U8GGWW69G';
 const DB_NAME = 'taberu-project';

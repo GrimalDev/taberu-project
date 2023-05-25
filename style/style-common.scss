@@ -2,7 +2,7 @@
 
 $taberu-black: #112b3c;
 $taberu-blue: rgba(32, 83, 117, 0.35);
-$taberu-orange: #f66b0e;
+$taberu-orange: rgb(246, 107, 14);
 $taberu-white: #efefef;
 
 @font-face {
@@ -189,16 +189,30 @@ select, option {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
   height: 12rem;
   min-width: fit-content;
   width: 15rem;
   padding: 0.5rem;
   background-color: $taberu-orange;
   border-radius: 10px;
+  border: 2px solid transparent;
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: bold !important;
+    height: 3rem;
+    overflow: hidden;
+  }
+  .card-description {
+    font-weight: normal !important;
+    height: 7rem;
+    overflow: hidden;
+  }
   &:hover {
-    opacity: .7;
     cursor: pointer;
+    background-color: $taberu-white;
+    border: 2px solid $taberu-orange;
+    color: $taberu-orange;
   }
 }
 
