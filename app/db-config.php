@@ -1,5 +1,8 @@
 <?php
-const DB_HOST = 'srv.grimaldev.local';
+
+//Access environnement variable for host. If environnement is in production use the "mariadb" host
+
+define("DB_HOST", getenv('ENVIRONMENT') === 'production' ? 'mariadb' : 'srv.grimaldev.local');
 const DB_USERNAME = 'taberu-com';
 const DB_PASSWORD = 'jsm8kD3U8GGWW69G';
 const DB_NAME = 'taberu-project';
