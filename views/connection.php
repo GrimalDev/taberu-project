@@ -1,6 +1,7 @@
 <?php
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
 require_once(realpath(dirname(__FILE__) . '/../app/redirection.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/controllers/user.php'));
 
 session_start(); //initialize session cookie
 
@@ -18,9 +19,9 @@ $DBpdo = connectDB();
 
 function isFormValidated() { // check for validated form, get variables, and execute the validations
 
-    if (!isset($_POST["submit"])) { return; };
+    if (!isset($_POST["submit"])) { return ""; };
 
-    if (!isset($_POST["auth"]) && !isset($_POST["password"])) { return; };
+    if (!isset($_POST["auth"]) && !isset($_POST["password"])) { return "Veuillez renseigner tout les champs"; };
 
     define("FORM_EMAIL", $_POST["auth"]);
     define("FORM_PASSWORD", $_POST["password"]);
@@ -41,30 +42,25 @@ function sendDataDB($connectWithUsername) { // process the data coming from the 
     $DBtablename = 'users';
     $auth = FORM_EMAIL;
 
-    try {
-        if ($connectWithUsername) {
-            $query = $DBpdo->prepare("SELECT * FROM `$DBtablename` WHERE `username` = :username");
-            $query->bindParam(':username', $auth); // default PDO::PARAM_STR
-        } else {
-            $query = $DBpdo->prepare("SELECT * FROM `$DBtablename` WHERE `email` = :email");
-            $query->bindParam(':email', $auth); // default PDO::PARAM_STR
-        }
-        $query->execute();
-        $count = $query->rowCount();
-        $row   = $query->fetch(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
+    $user = new user();
 
+    try {
+        $user->getUserByEmail($auth);
     } catch (PDOException $e) {
         return "Aucun compte n'existe à cette addresse mail ou nom d'utilisateur";
     }
 
-    if($count < 1 && empty($row) && !password_verify(FORM_PASSWORD, $row['password'])) {
-        return $msg = "Aucun compte n'existe à cette addresse mail ou nom d'utilisateur";
+    if(!$user->verifyPassword(FORM_PASSWORD)) {
+        return "Aucun compte n'existe à cette addresse mail ou nom d'utilisateur";
     }
 
     //defnie properties for the session cookies
     $_SESSION["loggedin"] = true;
-    $_SESSION['sess_user_id'] = $row['id'];
-    $_SESSION['sess_user_name'] = $row['username'];
+    $_SESSION['sess_user_id'] = $user->getId();
+    $_SESSION['sess_user_name'] = $user->getUsername();
+
+    //log connection in database
+    user::logConnection($user->getId());
 
     redirect(' /compte');
 }

@@ -3,6 +3,7 @@
 /*---------IMPORTS----------*/
 
 @import 'style-common';
+@import 'style-single-recipe';
 
 /*---------GENERAL STUFF----*/
 
@@ -20,9 +21,9 @@ form {
 }
 
 h1 {
-  background-color: $taberu-blue;
-  width: 90vw;
-  margin-left: 10vw;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .char-counter {
@@ -30,7 +31,7 @@ h1 {
 }
 
 #all-generated-cards {
-  display: flex !important;
+  display: flex;
   flex-wrap: wrap !important;
   justify-content: center !important;
   gap: 1rem;
@@ -42,6 +43,30 @@ h1 {
     min-width: unset !important;
     background-color: $taberu-white;
     box-shadow: $taberu-orange 1px 1px 2px 2px;
+  }
+}
+
+.section-container {
+  &.dynamic {
+    //no select user
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+    &:hover > .section-title {
+      background-color: $taberu-orange;
+      box-shadow: $taberu-orange 0 0 2px 1px;
+      color: $taberu-white;
+    }
+    > .section-title ~ * {
+      display: none;
+    }
+    &.active {
+      > .section-title ~ * {
+        display: flex !important;
+      }
+    }
   }
 }
 
