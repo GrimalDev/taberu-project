@@ -30,7 +30,27 @@ function connectDB() {
 
         return $DBpdo;
     } catch (PDOException $e) {
-        //display error
-        die("ERROR: Could not connect. " . $e->getMessage());
+        //display error message instead of rest of the page
+        //if no connection to database is possible from the server
+        echo <<<HTML
+            <style>
+                .error-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 50vh;
+                }
+                .error-container p {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+                main {
+                    display: none !important;
+                }
+            </style>
+            <div class="error-container">
+                <p>Une erreur est survenue, veuillez contacter l'administrateur</p>
+            </div>
+        HTML;
     }
 }
