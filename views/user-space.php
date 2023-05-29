@@ -103,38 +103,45 @@ function displayAllRecipes() {
     
     <script defer src="/scripts/script-char-counter.min.js" type="application/javascript"></script>
 
+    <script defer src="/scripts/user-space-menus.min.js" type="application/javascript"></script>
+
 </head>
 <body>
 <!--Get header template-->
 <?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
 <main>
-    <h1>Ajouter ma recette</h1>
-    <form action="/compte" method="post">
+    <h1>Mon compte <?php echo $connectedUser->getUsername() ?></h1>
+    <div class="section-container dynamic">
+        <div class="section-title">Ajouter une recette</div>
+        <form action="/compte" method="post">
 
-        <div><pre><?php echo $FORM_ERRORS; ?></pre></div>
+            <div><pre><?php echo $FORM_ERRORS; ?></pre></div>
 
-        <select name="country" id="contry-select">
-            <option value="">Origine de la recette</option>
-            <option value="india">Inde</option>
-            <option value="china">Chine</option>
-            <option value="thailand">Thaïland</option>
-            <option value="japan">Japon</option>
-        </select>
+            <select name="country" id="contry-select">
+                <option value="">Origine de la recette</option>
+                <option value="india">Inde</option>
+                <option value="china">Chine</option>
+                <option value="thailand">Thaïland</option>
+                <option value="japan">Japon</option>
+            </select>
 
-        <label for="title-counter-input">Charactères restants: <span id="title-char-count" class="char-counter">50/50</span></span></label>
-        <input id="title-counter-input" name="title" type="text" placeholder="Titre de ma recette">
+            <label for="title-counter-input">Charactères restants: <span id="title-char-count" class="char-counter">50/50</span></span></label>
+            <input id="title-counter-input" name="title" type="text" placeholder="Titre de ma recette">
 
-        <label for="description-counter-input">Charactères restants: <span id="description-char-count" class="char-counter">200/200</span></span></label>
-        <input id="description-counter-input" name="description" type="text" placeholder="Description de ma recette">
+            <label for="description-counter-input">Charactères restants: <span id="description-char-count" class="char-counter">200/200</span></span></label>
+            <input id="description-counter-input" name="description" type="text" placeholder="Description de ma recette">
 
-        <textarea name="recipeBody" cols="30" rows="40" placeholder="Ma recette points par points"></textarea>
+            <textarea name="recipeBody" cols="30" rows="40" placeholder="Ma recette points par points"></textarea>
 
-        <input name="submit" type="submit" value="Publier">
+            <input name="submit" type="submit" value="Publier">
 
-    </form>
-    <h1>Mes recettes ajoutées</h1>
-    <div id="all-generated-cards">
-        <?php displayAllRecipes()?>
+        </form>
+    </div>
+    <div class="section-container">
+        <div class="section-title">Mes recettes ajoutées</div>
+        <div id="all-generated-cards">
+            <?php displayAllRecipes() ?>
+        </div>
     </div>
 </main>
 <!--Get footer template-->

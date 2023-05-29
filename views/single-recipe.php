@@ -7,6 +7,8 @@ session_start();
 $mainRecipe = new recipe();
 $recipeExists = $mainRecipe->getRecipeByTitle($_GET['recipe']);
 
+$allCountries = recipe::getAllCountries();
+
 ?>
 <html lang="fr">
 <head>
@@ -15,8 +17,6 @@ $recipeExists = $mainRecipe->getRecipeByTitle($_GET['recipe']);
     <title>TaBeRu forum</title>
 
     <link rel="stylesheet" href="/style/style-single-recipe-modify.css" type="text/css">
-
-    
 
 </head>
 <body>
@@ -29,15 +29,11 @@ $recipeExists = $mainRecipe->getRecipeByTitle($_GET['recipe']);
             <div class="country-indicator">
                 <?php
                 $country = $mainRecipe->getCountry();
-
-                if ($country === 'india') {
-                    echo '<img src="/style/media/flags/india-flag.svg" alt="india flag" <span>Inde</span>';
-                } else if ($country === 'china') {
-                    echo '<img src="/style/media/flags/china-flag.svg" alt="china flag" <span>Chine</span>';
-                } else if ($country === 'thailand') {
-                    echo '<img src="/style/media/flags/thailand-flag.svg" alt="thailand flag" <span>Thailand</span>';
-                } else if ($country === 'japan') {
-                    echo '<img src="/style/media/flags/japan-flag.svg" alt="japan flag" <span>Japon</span>';
+                //display the flag corresponding to the current recipe country
+                foreach ($allCountries as $country) {
+                    if ($country['country'] === $mainRecipe->getCountry()) {
+                        echo '<img src="/style/media/flags/' . $country['country'] . '-flag.svg" alt="country flag"><span>' . $country['fr'] . '</span>';
+                    }
                 }
                 ?>
             </div>

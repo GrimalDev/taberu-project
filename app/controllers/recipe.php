@@ -24,7 +24,7 @@ class recipe
             die();
         }
 
-        $this->DBtablename = 'recettes';
+        $this->DBtablename = 'recipes';
 
         $countryListDB = $this->DBpdo->query("SELECT * FROM `countries`");
         $countryListDB = $countryListDB->fetchAll(PDO::FETCH_ASSOC);
@@ -70,6 +70,33 @@ class recipe
         if ($mainRecipe === false) {
             return false;
         }
+        $this->id = $this->protect($mainRecipe['id']);
+        $this->setTitle($mainRecipe['title']);
+        $this->setDescription($mainRecipe['description']);
+        $this->setRecipeBody($mainRecipe['recipe_body']);
+        $this->setCountry($mainRecipe['country']);
+        $this->setCreatorName($mainRecipe['addedby']);
+
+        return true;
+    }
+
+    public function getRecipeById($id): bool {
+        $mainRecipe = [];
+
+        try {
+            $query = $this->DBpdo->prepare("SELECT * FROM `$this->DBtablename` WHERE `id` = :id");
+            $query->bindParam(':id', $id);
+            $query->execute();
+            $mainRecipe = $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        }
+
+        //protect if the recipe doesn't exist
+        if ($mainRecipe === false) {
+            return false;
+        }
+
         $this->id = $this->protect($mainRecipe['id']);
         $this->setTitle($mainRecipe['title']);
         $this->setDescription($mainRecipe['description']);
@@ -148,7 +175,6 @@ class recipe
             $query->execute();
 
         } catch (PDOException $e) {
-            var_dump($e);
              return "Une erreur est survenue lors de la modification de la recette";
         }
 
@@ -320,7 +346,7 @@ class recipe
 
     public static function getAllRecipes() {
         $DBpdo = connectDB();
-        $DBtablename = 'recettes';
+        $DBtablename = 'recipes';
 
         $recipes = [];
 
@@ -345,7 +371,7 @@ class recipe
 
     public static function getRecipesByUser($username) {
         $DBpdo = connectDB();
-        $DBtablename = 'recettes';
+        $DBtablename = 'recipes';
 
         $recipes = [];
 
@@ -369,14 +395,14 @@ class recipe
         return $recipes;
     }
 
-    public static function getAllCountries() {
+    public static function getAllCountries(): false|array
+    {
         $DBpdo = connectDB();
-        $DBtablename = 'recettes';
 
         $countries = [];
 
         try {
-            $query = $DBpdo->prepare("SELECT DISTINCT `countries` FROM `$DBtablename`");
+            $query = $DBpdo->prepare("SELECT * FROM `countries`");
             $query->execute();
             $countries = $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {

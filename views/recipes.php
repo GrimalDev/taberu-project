@@ -4,6 +4,8 @@ require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
 
 session_start();
 
+//TODO: convert to class
+
 function cardTemplate($title, $description, $stars): void
 {
     echo '<a class="generated-card" href= /recette-detail?recipe='.urlencode($title).'>
@@ -28,7 +30,7 @@ function generateCards($rows): void
 function displayAllRecipes($country): void
 {
     $DBpdo = connectDB();
-    $DBtablename = 'recettes';
+    $DBtablename = 'recipes';
 
     try {
         $query = $DBpdo->prepare("SELECT * FROM `$DBtablename` WHERE `country` = :country");
@@ -37,7 +39,6 @@ function displayAllRecipes($country): void
         $rows = $query->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
         generateCards($rows);
     } catch (PDOException $e) {
-        echo $e;
     }
 }
 
