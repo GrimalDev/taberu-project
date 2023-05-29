@@ -1,6 +1,6 @@
 <?php
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
-require realpath(dirname(__FILE__) . '/../app/controllers/recipe.php');
+require_once(realpath(dirname(__FILE__) . '/../app/controllers/recipe.php'));
 
 session_start();
 
@@ -14,7 +14,7 @@ $recipeExists = $mainRecipe->getRecipeByTitle($_GET['recipe']);
 
     <title>TaBeRu forum</title>
 
-    <link rel="stylesheet" href="../style/style-single-recipe-modify.css" type="text/css">
+    <link rel="stylesheet" href="/style/style-single-recipe-modify.css" type="text/css">
 
     
 
@@ -31,35 +31,29 @@ $recipeExists = $mainRecipe->getRecipeByTitle($_GET['recipe']);
                 $country = $mainRecipe->getCountry();
 
                 if ($country === 'india') {
-                    echo '<img src="../style/media/flags/india-flag.svg" alt="india flag" <span>Inde</span>';
+                    echo '<img src="/style/media/flags/india-flag.svg" alt="india flag" <span>Inde</span>';
                 } else if ($country === 'china') {
-                    echo '<img src="../style/media/flags/china-flag.svg" alt="china flag" <span>Chine</span>';
+                    echo '<img src="/style/media/flags/china-flag.svg" alt="china flag" <span>Chine</span>';
                 } else if ($country === 'thailand') {
-                    echo '<img src="../style/media/flags/thailand-flag.svg" alt="thailand flag" <span>Thailand</span>';
+                    echo '<img src="/style/media/flags/thailand-flag.svg" alt="thailand flag" <span>Thailand</span>';
                 } else if ($country === 'japan') {
-                    echo '<img src="../style/media/flags/japan-flag.svg" alt="japan flag" <span>Japon</span>';
+                    echo '<img src="/style/media/flags/japan-flag.svg" alt="japan flag" <span>Japon</span>';
                 }
                 ?>
             </div>
         </div>
-        <p class="section-title-content"><?php echo $mainRecipe->getTitle() ?></p>
+        <p class="section-title-content"><?php echo $mainRecipe->getTitle(true) ?></p>
     </div>
 
     <div class="section-container">
         <div class="section-title">Description:</div>
-        <p class="section-title-content"><?php echo $mainRecipe->getDescription() ?></p>
+        <p class="section-title-content"><?php echo $mainRecipe->getDescription(true) ?></p>
     </div>
 
     <div class="section-container">
         <div class="section-title">Recette:</div>
         <div id="recipes-single-card-container">
-            <p class="recipe-single-card-text"><?php
-                    //convert html codes to special characters
-                    $rawText = html_entity_decode($mainRecipe->getRecipeBody());
-                    //text uses \n for new lines, replace with <br>
-                    $text = str_replace("\n", "<br>", $rawText);
-                    echo $text;
-                ?></p>
+            <p class="recipe-single-card-text"><?php echo $mainRecipe->getRecipeBody(true) ?></p>
         </div>
     </div>
 </main>
