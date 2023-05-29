@@ -108,10 +108,13 @@ $recipeExists = $mainRecipe->getRecipeByTitle($titleURL);
     <div class="section-container">
         <div class="section-title">Recette:</div>
         <div id="recipes-single-card-container">
-            <pre class="recipe-single-card-text"><?php
-                    //convert html codes to special characters
-                    echo html_entity_decode($mainRecipe->getRecipeBody());
-                ?></pre>
+            <p class="recipe-single-card-text"><?php
+                //convert html codes to special characters
+                $rawText = html_entity_decode($mainRecipe->getRecipeBody());
+                //text uses \n for new lines, replace with <br>
+                $text = str_replace("\n", "<br>", $rawText);
+                echo $text;
+                ?></p>
         </div>
     </div>
 

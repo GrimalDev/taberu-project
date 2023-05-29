@@ -32,6 +32,13 @@ header {
   height: 5rem;
   width: calc(100% - 2rem);
 }
+header .logo-link {
+  height: 100%;
+}
+header .logo-link img {
+  width: 100%;
+  height: 100%;
+}
 header nav {
   width: 100%;
   height: 100%;
@@ -113,6 +120,7 @@ input[type=submit] {
   width: 35%;
   border: 2px solid transparent;
   background: rgb(246, 107, 14);
+  cursor: pointer !important;
 }
 input[type=submit]:hover {
   background-color: #efefef;
@@ -272,6 +280,7 @@ a.underlined.nav-txt-active::after {
 
 #animated-burger {
   fill: #112b3c;
+  cursor: pointer;
 }
 #animated-burger:hover {
   fill: rgb(246, 107, 14);
@@ -379,21 +388,37 @@ a.underlined.nav-txt-active::after {
 }
 /*---------GENERAL STUFF----*/
 /*--------MAIN----------*/
-h1, h2 {
-  text-align: center;
+.section-landing__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: 3rem;
-  margin: 0;
+  margin-bottom: 2rem;
+  animation: slow-pop 0.5s cubic-bezier(1, 0.21, 0.59, 1.27);
+}
+.section-landing__container .normal-font {
   line-height: 3rem;
+  height: fit-content;
+  font-size: 1.5rem;
+  margin: 0;
 }
-
-strong {
-  font-size: 2.5rem;
-  letter-spacing: 0.2rem;
+.section-landing__container .section-landing__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: fit-content;
 }
-
-.title-noodles {
+.section-landing__container .title-noodles {
   width: 2rem;
   animation: floating 2.7s ease-in-out infinite;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+  margin-block: 0.5rem;
 }
 
 #map-title-container {
@@ -422,6 +447,17 @@ strong {
   animation: pulseMap 2s cubic-bezier(0.5, 0.5, 0, 1);
 }
 
+/*---------ANIMATIONS----------*/
+@keyframes slow-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 /*---------RESPONSSIVE----------*/
 @media screen and (max-width: 767px) {
   #map-title-container {

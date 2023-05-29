@@ -7,15 +7,12 @@
 
     <title>TaBeRu</title>
 
-    <link rel="stylesheet" href="../style/style-home.css" type="text/css">
-
-    
+    <link rel="stylesheet" href="/style/style-home.css" type="text/css">
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
-    <script type="application/javascript" src="../scripts/script-home-map.js"></script>
-
+    <script type="application/javascript" src="/scripts/script-home-map.min.js"></script>
 </head>
 <body>
 
@@ -23,18 +20,20 @@
     <?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
 
     <main>
-        <h1>
-            Bienvenue sur<br />
-            <img  class="title-noodles left" src="../style/media/food-images/noodles.png" alt="noodles">
-                <strong>TaBeRu</strong>
-            <img class="title-noodles right" src="../style/media/food-images/noodles.png" alt="noodles"><br />
-            Un blog communautaire de recettes asiatiques
-        </h1>
+        <section class="section-landing__container">
+            <span class="normal-font">Bienvenue sur</span>
+            <div class="section-landing__title">
+                <img  class="title-noodles left" src="/style/media/food-images/noodles.png" alt="noodles">
+                <h1>TaBeRu</h1>
+                <img class="title-noodles right" src="/style/media/food-images/noodles.png" alt="noodles"><br />
+            </div>
+            <h2 class="normal-font">Un blog communautaire de recettes asiatiques</h2>
+        </section>
         <div id="map-title-container">
             <span>carte interactive des recettes</span>
         </div>
         <div id="map-image-container">
-            <img id="img_ID" src="../style/media/Asia-Map.png" usemap="#map" alt="asia map">
+            <img id="img_ID" src="/style/media/Asia-Map.png" usemap="#map" alt="asia map">
         </div>
         <map id="map_ID" name="map">
             <area target="_self" alt="chine" title="chine" href=" /recettes#chine" coords="1914,298,1829,331,1747,383,1698,432,1649,508,1632,573,1636,645,1639,704,1669,767,1698,845,1731,904,1757,953,1796,1013,1852,1075,1891,1114,1944,1157,1996,1190,2042,1213,2098,1239,2170,1262,2235,1272,2301,1278,2379,1281,2435,1278,2514,1272,2596,1252,2674,1235,2746,1213,2819,1190,2884,1163,2923,1121,2923,1078,2904,1026,2887,990,2864,940,2848,898,2828,849,2825,806,2845,770,2884,744,2927,731,2956,737,2969,763,2972,796,2976,839,2989,875,2999,908,3015,931,3031,953,3051,970,3087,960,3107,921,3110,858,3087,816,3061,786,3048,740,3090,714,3140,681,3169,655,3192,626,3182,586,3179,547,3208,521,3241,471,3271,426,3290,386,3274,357,3225,347,3179,353,3143,353,3107,344,3087,304,3071,255,3054,209,3035,160,3002,124,2966,104,2927,85,2887,91,2838,108,2802,134,2766,164,2730,190,2694,213,2619,275,2567,288,2501,301,2449,282,2413,255,2370,216,2328,177,2301,150,2275,131,2246,137,2220,144,2203,170,2197,196,2193,236,2190,265,2180,282,2147,288,2108,282,2062,272,1997,268,1961,275" shape="poly">

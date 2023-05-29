@@ -1,5 +1,5 @@
 <header> <!--TODO implement compote or login from session cookie ton get acces to login page or account page-->
-    <img src="../../style/media/TaBeRu-solid-fit.png" alt="logo taberu">
+    <a href="/" class="logo-link"><img src="/style/media/TaBeRu-solid-fit.png" alt="logo taberu"></a>
     <nav>
         <div>
             <?php

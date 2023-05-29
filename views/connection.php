@@ -4,6 +4,13 @@ require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 
 session_start(); //initialize session cookie
 
+//verify if user is logged in
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    redirect('/recettes');
+    exit;
+}
+
 // PHP Part with form process
 
 $FORM_ERRORS = '';
@@ -72,8 +79,8 @@ $FORM_ERRORS = isFormValidated();
 
     <title>TaBeRu Login</title>
 
-    <link type="text/css" rel="stylesheet" href="../style/style-register-connection.css">
-    <link type="text/css" rel="stylesheet" href="../style/style-common.css">
+    <link type="text/css" rel="stylesheet" href="/style/style-register-connection.css">
+    <link type="text/css" rel="stylesheet" href="/style/style-common.css">
 
     
 </head>

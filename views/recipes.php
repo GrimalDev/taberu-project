@@ -49,10 +49,9 @@ function displayAllRecipes($country): void
 
     <title>TaBeRu</title>
 
-    <link rel="stylesheet" href="../style/style-recettes.css" type="text/css">
+    <link rel="stylesheet" href="/style/style-recettes.css" type="text/css">
 
-    
-
+    <script defer src="/scripts/script-pulse-animation.min.js"></script>
 </head>
 <body>
     <!--Get header template-->
@@ -65,24 +64,24 @@ function displayAllRecipes($country): void
                 <circle id="Oval" cx="512" cy="512" r="512"></circle>
             </svg>
         </div>
-        <div class="all-generated-cards-container">
+        <div class="all-generated-cards-container make-disappear">
             <h1 id="japon">Recettes du Japon</h1>
-            <div class="all-generated-cards" class="make-disappear">
+            <div class="all-generated-cards">
                 <?php displayAllRecipes("japan")?>
             </div>
 
             <h1 id="chine">Recettes de Chine</h1>
-            <div class="all-generated-cards" class="make-disappear">
+            <div class="all-generated-cards">
                 <?php displayAllRecipes("china")?>
             </div>
 
             <h1 id="thailand">Recettes de Thaïland</h1>
-            <div class="all-generated-cards" class="make-disappear">
+            <div class="all-generated-cards">
                 <?php displayAllRecipes("thailand")?>
             </div>
 
             <h1 id="inde">Recettes d'Inde</h1>
-            <div class="all-generated-cards" class="make-disappear">
+            <div class="all-generated-cards">
                 <?php displayAllRecipes("india")?>
             </div>
         </div>

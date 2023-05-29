@@ -17,8 +17,9 @@ function charCounter(textToCountID, counterID, nbMax) {
         }
     };
 
+    countCharacters();
     input.addEventListener("input", countCharacters);
 }
 
-charCounter("title-counter-input", "title-char-count", 30)
-charCounter("description-counter-input", "description-char-count", 50)
+charCounter("title-counter-input", "title-char-count", 50)
+charCounter("description-counter-input", "description-char-count", 200)

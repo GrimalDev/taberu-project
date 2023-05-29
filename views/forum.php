@@ -7,7 +7,7 @@
 
     <title>TaBeRu forum</title>
 
-    <link rel="stylesheet" href="../style/style-forum.css" type="text/css">
+    <link rel="stylesheet" href="/style/style-forum.css" type="text/css">
 
     
 
