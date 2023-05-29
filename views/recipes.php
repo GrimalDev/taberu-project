@@ -1,6 +1,7 @@
 <?php
 
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/controllers/recipe.php'));
 
 session_start();
 
@@ -29,15 +30,8 @@ function generateCards($rows): void
 
 function displayAllRecipes($country): void
 {
-    $DBpdo = connectDB();
-    $DBtablename = 'recipes';
-
     try {
-        $query = $DBpdo->prepare("SELECT * FROM `$DBtablename` WHERE `country` = :country");
-        $query->bindParam(':country', $country);
-        $query->execute();
-        $rows = $query->fetchAll(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
-        generateCards($rows);
+        generateCards(recipe::getRecipesByCountry($country));
     } catch (PDOException $e) {
     }
 }

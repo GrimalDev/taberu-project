@@ -411,4 +411,29 @@ class recipe
 
         return $countries;
     }
+    
+    public static function getRecipesByCountry($country) {
+        $DBpdo = connectDB();
+
+        $recipes = [];
+
+        try {
+            $query = $DBpdo->prepare("SELECT * FROM `recipes` WHERE `country` = :country");
+            $query->bindParam(':country', $country); // default PDO::PARAM_STR
+            $query->execute();
+            $recipes = $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
+
+        //escape html for each recipe in all fields
+        foreach ($recipes as &$recipe) {
+            foreach ($recipe as &$field) {
+                if (is_string($field))
+                    $field = htmlspecialchars($field);
+            }
+        }
+
+        return $recipes;
+    }
 }
