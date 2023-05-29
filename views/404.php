@@ -3,7 +3,7 @@
 <head>
     <?php include realpath(dirname(__FILE__) . '/partials/head.php')?>
 
-    <link rel="stylesheet" href="../style/style-404.css">
+    <link rel="stylesheet" href="/style/style-404.css">
 
     <title>Not Found</title>
 
