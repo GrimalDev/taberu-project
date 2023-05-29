@@ -49,10 +49,9 @@ function displayAllRecipes($country): void
 
     <title>TaBeRu</title>
 
-    <link rel="stylesheet" href="../style/style-recettes.css" type="text/css">
+    <link rel="stylesheet" href="/style/style-recettes.css" type="text/css">
 
-    
-
+    <script defer src="/scripts/script-pulse-animation.min.js"></script>
 </head>
 <body>
     <!--Get header template-->

@@ -5,31 +5,48 @@ require_once realpath(dirname(__FILE__) . '/../db-config.php');
 class recipe
 {
     private $DBpdo;
-    private $DBtablename = 'recettes';
+    private string $DBtablename;
 
-    public $id;
-    public $title;
-    public $description;
-    public $recipeBody;
-    public $country;
-    public $creatorName;
+    private string $id;
+    private string $title;
+    private string $description;
+    private string $recipeBody;
+    private string $country;
+    private string $creatorName;
+
+    private array $countryList;
 
     public function __construct() {
         $this->DBpdo = connectDB();
+
+        $this->DBtablename = 'recettes';
+
+        $countryListDB = $this->DBpdo->query("SELECT * FROM `pays`");
+        $countryListDB = $countryListDB->fetchAll(PDO::FETCH_ASSOC);
+        $this->countryList = array_column($countryListDB, 'country');
+
+        //default values
+        $this->id = '';
+        $this->title = '';
+        $this->description = '';
+        $this->recipeBody = '';
+        $this->country = '';
+        $this->creatorName = '';
     }
 
     public function __toString()
     {
-        return "{
-            id: $this->id,
-            title: $this->title,
-            description: $this->description,
-            recipeBody: $this->recipeBody,
-            country: $this->country,
-            creatorName: $this->creatorName
-        }";
-    }
+        $thisArray = [
+            "id" => $this->id,
+            "title" => $this->title,
+            "description" => $this->description,
+            "recipeBody" => $this->recipeBody,
+            "country" => $this->country,
+            "creatorName" => $this->creatorName
+        ];
 
+        return json_encode($thisArray);
+    }
 
     public function getRecipeByTitle($recipeTitle): bool
     {
@@ -48,7 +65,6 @@ class recipe
         if ($mainRecipe === false) {
             return false;
         }
-
         $this->id = $this->protect($mainRecipe['id']);
         $this->setTitle($mainRecipe['title']);
         $this->setDescription($mainRecipe['description']);
@@ -91,35 +107,46 @@ class recipe
             return "Tous les champs doivent être remplis";
         }
 
+        echo "<script>console.log(JSON.parse(`$this`))</script>";
+
         //only modify the fields that are set
         $query = "UPDATE `$this->DBtablename` SET ";
-        $query .= !empty($this->title) ? "`title` = :title, " : "";
-        $query .= !empty($this->description) ? "`description` = :description, " : "";
-        $query .= !empty($this->recipeBody) ? "`recipe_body` = :recipe_body, " : "";
-        $query .= !empty($this->country) ? "`country` = :country, " : "";
-        $query .= !empty($this->creatorName) ? "`addedby` = :addedby, " : "";
+        $query .= !empty($this->title) && $this->title !== $this->getTitle() ? "`title` = :title, " : "";
+        $query .= !empty($this->description) && $this->description !== $this->getDescription() ? "`description` = :description, " : "";
+        $query .= !empty($this->recipeBody) && $this->recipeBody !== $this->getRecipeBody() ? "`recipe_body` = :recipe_body, " : "";
+        $query .= !empty($this->country) && $this->country !== $this->getCountry() ? "`country` = :country, " : "";
+        $query .= !empty($this->creatorName) && $this->creatorName !== $this->getCreatorName() ? "`addedby` = :addedby, " : "";
         $query = substr($query, 0, -2); //remove the last comma
+
+        //if no field is set, return false
+        if (str_ends_with($query, " SE")) {
+            return "Aucun champ n'a été modifié";
+        }
+
+        //end query with proper selector
         $query .= " WHERE `id` = :id";
 
         try {
             $query = $this->DBpdo->prepare($query);
             $query->bindParam(':id', $this->id, PDO::PARAM_INT);
-            if (!empty($this->title)) {
+
+            if (!empty($this->title) && $this->title !== $this->getTitle()) {
                 $query->bindParam(':title', $this->title);
             }
-            if (!empty($this->description)) {
+            if (!empty($this->description) && $this->description !== $this->getDescription()) {
                 $query->bindParam(':description', $this->description);
             }
-            if (!empty($this->recipeBody)) {
+            if (!empty($this->recipeBody) && $this->recipeBody !== $this->getRecipeBody()) {
                 $query->bindParam(':recipe_body', $this->recipeBody);
             }
-            if (!empty($this->country)) {
+            if (!empty($this->country) && $this->country !== $this->getCountry()) {
                 $query->bindParam(':country', $this->country);
             }
-            if (!empty($this->creatorName)) {
+            if (!empty($this->creatorName) && $this->creatorName !== $this->getCreatorName()) {
                 $query->bindParam(':addedby', $this->creatorName);
             }
-            $result = $query->execute();
+
+            $query->execute();
 
         } catch (PDOException $e) {
              return "Une erreur est survenue lors de la modification de la recette";
@@ -152,7 +179,7 @@ class recipe
     private function protect($string)
     {
         if (is_string($string)) {
-            return htmlspecialchars($string);
+            $string = htmlspecialchars($string);
         }
 
         return $string;
@@ -161,9 +188,15 @@ class recipe
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getTitle($htmlVersion = false)
     {
-        return $this->protect($this->title);
+        $title = html_entity_decode($this->title);
+
+        if ($htmlVersion) {
+            return nl2br($title);
+        }
+
+        return $title;
     }
 
     /**
@@ -171,15 +204,26 @@ class recipe
      */
     public function setTitle($title)
     {
-        $this->title = $this->protect($title);
+        $title = $this->protect($title);
+        //less than 50 characters
+        if (strlen($title) > 50) {
+            return new Exception("Le titre doit faire moins de 50 caractères");
+        }
+        $this->title = $title;
     }
 
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getDescription($htmlVersion = false)
     {
-        return $this->protect($this->description);
+        $description = html_entity_decode($this->description);
+
+        if ($htmlVersion) {
+            return nl2br($description);
+        }
+
+        return $description;
     }
 
     /**
@@ -187,15 +231,26 @@ class recipe
      */
     public function setDescription($description)
     {
-        $this->description = $this->protect($description);
+        $description = $this->protect($description);
+        //less than 200 characters
+        if (strlen($description) > 200) {
+            return new Exception("La description doit faire moins de 200 caractères");
+        }
+        $this->description = $description;
     }
 
     /**
      * @return mixed
      */
-    public function getRecipeBody()
+    public function getRecipeBody($htmlVersion = false)
     {
-        return $this->protect($this->recipeBody);
+        $body = html_entity_decode($this->recipeBody);
+
+        if ($htmlVersion) {
+            return nl2br($body);
+        }
+
+        return $body;
     }
 
     /**
@@ -217,9 +272,18 @@ class recipe
     /**
      * @param mixed $country
      */
-    public function setCountry($country)
+    public function setCountry(string $country)
     {
-        $this->country = $this->protect($country);
+
+        $country = $this->protect($country);
+        $country = strtolower($country);
+
+        //check if country is valid from country list
+        if (!in_array($country, $this->countryList)) {
+            return new Exception("Pays invalide");
+        }
+
+        $this->country = $country;
     }
 
     /**
@@ -238,7 +302,21 @@ class recipe
         $this->creatorName = $creatorName;
     }
 
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
+    }
 
     public static function getAllRecipes() {
         $DBpdo = connectDB();

@@ -98,7 +98,7 @@ $FORM_ERRORS = isFormValidated();
 
     <title>TaBeRu Modifications</title>
 
-    <link rel="stylesheet" href="../style/style-modifications.css" type="text/css">
+    <link rel="stylesheet" href="/style/style-modifications.css" type="text/css">
 
     
 
