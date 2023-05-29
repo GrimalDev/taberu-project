@@ -3,6 +3,14 @@
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
 require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 
+//verify if user is logged in
+session_start();
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    redirect('/recettes');
+    exit;
+}
+
 $FORM_ERRORS = '';
 $DBpdo = connectDB();
 
@@ -74,7 +82,7 @@ $FORM_ERRORS = isFormValidated();
 
     <title>TaBeRu Register</title>
 
-    <link type="text/css" rel="stylesheet" href="../style/style-register-connection.css">
+    <link type="text/css" rel="stylesheet" href="/style/style-register-connection.css">
 
     
 </head>
