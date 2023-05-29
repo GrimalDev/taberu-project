@@ -1,11 +1,20 @@
 <?php
 
-//Access environnement variable for host. If environnement is in production use the "mariadb" host
+require __DIR__ . '/../vendor/autoload.php';
 
-define("DB_HOST", getenv('ENVIRONMENT') === 'production' ? 'mariadb' : 'srv.grimaldev.local');
-const DB_USERNAME = 'taberu-com';
-const DB_PASSWORD = 'jsm8kD3U8GGWW69G';
-const DB_NAME = 'taberu-project';
+//load environnement variable with .env file at project root
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->safeLoad();
+
+$dotenv->required(['DB_HOST_PRODUCTION', 'DB_HOST_DEVELOPMENT', 'DB_NAME', 'DB_USERNAME', 'DB_PASSWORD']);
+
+require_once realpath(dirname(__FILE__) . '/../app/redirection.php');
+
+//Access environnement variable for host. If environnement is in production use the "mariadb" host
+define("DB_HOST", getenv('ENVIRONMENT') === 'production' ? $_ENV['DB_HOST_PRODUCTION'] : $_ENV['DB_HOST_DEVELOPMENT']);
+define("DB_USERNAME", $_ENV['DB_USERNAME']);
+define("DB_PASSWORD", $_ENV['DB_PASSWORD']);
+define("DB_NAME", $_ENV['DB_NAME']);
 
 function connectDB() {
     /*--------------------------
