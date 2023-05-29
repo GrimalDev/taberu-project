@@ -10,9 +10,9 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 #RUN docker-php-ext-install @composer # default installed
 #RUN docker-php-ext-enable composer
 #launch composer
-#COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-#COPY composer.json ./
-#RUN composer install
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+COPY composer.json ./
+RUN composer install
 
 RUN a2enmod rewrite \
     && service apache2 restart
