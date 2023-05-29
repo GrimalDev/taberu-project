@@ -1,6 +1,7 @@
 <?php
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
 require_once(realpath(dirname(__FILE__) . '/../app/redirection.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/controllers/user.php'));
 
 session_start();
 
@@ -12,35 +13,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $FORM_ERRORS = '';
 $DBpdo = connectDB();
 
-function hashPassword($password) {
-    $options = [
-        'cost' => 9 // A value used by the hashing algorithm
-    ];
-    return password_hash($password, PASSWORD_DEFAULT, $options);
-}
-
-function verifyPassword($password) {
-    $DBpdo = connectDB();
-    $DBtablename = 'users';
-    $username = $_SESSION['sess_user_name'];
-    $tempBool = false;
-
-    try {
-        $query = $DBpdo->prepare("SELECT * FROM `$DBtablename` WHERE `username` = :username");
-        $query->bindParam(':username', $username); // default PDO::PARAM_STR
-        $query->execute();
-        $count = $query->rowCount();
-        $row   = $query->fetch(PDO::FETCH_ASSOC); // PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
-    } catch (PDOException $e) {
-        return "Oups! Il y a eu un problème...";
-    }
-
-    if($count < 1 && empty($row) && !password_verify(FORM_PASSWORD_INITIAL, $row['password'])) {
-        $tempBool = true;
-    }
-
-    return $tempBool;
-}
+$user = new user();
+$user->getUserById($_SESSION['sess_user_id']);
 
 function isFormValidated() { // check for validated form, get variables, and execute the validations
 
@@ -56,9 +30,11 @@ function isFormValidated() { // check for validated form, get variables, and exe
 }
 
 function verifyFormData() {
+    global $user;
+
     $password_initial = FORM_PASSWORD_INITIAL;
 
-    if(!verifyPassword($password_initial)) { return "Mauvais mot de passe"; }
+    if(!$user->verifyPassword($password_initial)) { return "Mauvais mot de passe"; }
 
     if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/", FORM_PASSWORD)) {
         return "Mot de passe incorrect,<br />&nbsp- Minimum un caractère spécial (@!%*?&),<br />&nbsp- Minimum une Majuscule ainsi que une minuscule,<br />&nbsp- Entre 8 et 32 caractères.";
@@ -71,22 +47,12 @@ function verifyFormData() {
 }
 
 function sendDataDB() { // process the data coming from the form
-    $DBpdo = connectDB();
-    $DBtablename = 'users';
-    $username = $_SESSION['sess_user_name'];
-    $hashed_password = hashPassword(FORM_PASSWORD);
+    $updateUser = new user();
+    $updateUser->setId($_SESSION['sess_user_id']);
+    $updateUser->setPassHashFromPassword(FORM_PASSWORD);
+    $updateUser->updateUser();
 
-    try {
-        $query = $DBpdo->prepare("UPDATE `$DBtablename` SET `password` = :password WHERE `username` = :username");
-        $query->bindParam(':password', $hashed_password); // default PDO::PARAM_STR
-        $query->bindParam(':username', $username);
-        $query->execute();
-    } catch (PDOException $e) {
-        if ($e->errorInfo[1] == 1062) {
-            return "Un compte est déja associé à cette email";
-        }
-    }
-    return "Le mot de passe à bien été modifié";
+    return "Mot de passe modifié avec succès";
 }
 
 $FORM_ERRORS = isFormValidated();
