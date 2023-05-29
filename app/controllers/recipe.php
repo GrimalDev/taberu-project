@@ -1,6 +1,6 @@
 <?php
 
-require_once realpath(dirname(__FILE__) . '/../db-config.php');
+require_once(realpath(dirname(__FILE__) . '/../db-config.php'));
 
 class recipe
 {
@@ -19,9 +19,14 @@ class recipe
     public function __construct() {
         $this->DBpdo = connectDB();
 
+        //check if db is null
+        if ($this->DBpdo === null) {
+            die();
+        }
+
         $this->DBtablename = 'recettes';
 
-        $countryListDB = $this->DBpdo->query("SELECT * FROM `pays`");
+        $countryListDB = $this->DBpdo->query("SELECT * FROM `countries`");
         $countryListDB = $countryListDB->fetchAll(PDO::FETCH_ASSOC);
         $this->countryList = array_column($countryListDB, 'country');
 
@@ -103,19 +108,13 @@ class recipe
     }
 
     public function updateRecipe(): bool|string {
-        if (!$this->allFieldsAreValid()) {
-            return "Tous les champs doivent être remplis";
-        }
-
-        echo "<script>console.log(JSON.parse(`$this`))</script>";
-
         //only modify the fields that are set
         $query = "UPDATE `$this->DBtablename` SET ";
-        $query .= !empty($this->title) && $this->title !== $this->getTitle() ? "`title` = :title, " : "";
-        $query .= !empty($this->description) && $this->description !== $this->getDescription() ? "`description` = :description, " : "";
-        $query .= !empty($this->recipeBody) && $this->recipeBody !== $this->getRecipeBody() ? "`recipe_body` = :recipe_body, " : "";
-        $query .= !empty($this->country) && $this->country !== $this->getCountry() ? "`country` = :country, " : "";
-        $query .= !empty($this->creatorName) && $this->creatorName !== $this->getCreatorName() ? "`addedby` = :addedby, " : "";
+        $query .= !empty($this->title) ? "`title` = :title, " : "";
+        $query .= !empty($this->description) ? "`description` = :description, " : "";
+        $query .= !empty($this->recipeBody) ? "`recipe_body` = :recipe_body, " : "";
+        $query .= !empty($this->country) ? "`country` = :country, " : "";
+        $query .= !empty($this->creatorName) ? "`addedby` = :addedby, " : "";
         $query = substr($query, 0, -2); //remove the last comma
 
         //if no field is set, return false
@@ -130,25 +129,26 @@ class recipe
             $query = $this->DBpdo->prepare($query);
             $query->bindParam(':id', $this->id, PDO::PARAM_INT);
 
-            if (!empty($this->title) && $this->title !== $this->getTitle()) {
+            if (!empty($this->title)) {
                 $query->bindParam(':title', $this->title);
             }
-            if (!empty($this->description) && $this->description !== $this->getDescription()) {
+            if (!empty($this->description)) {
                 $query->bindParam(':description', $this->description);
             }
-            if (!empty($this->recipeBody) && $this->recipeBody !== $this->getRecipeBody()) {
+            if (!empty($this->recipeBody)) {
                 $query->bindParam(':recipe_body', $this->recipeBody);
             }
-            if (!empty($this->country) && $this->country !== $this->getCountry()) {
+            if (!empty($this->country)) {
                 $query->bindParam(':country', $this->country);
             }
-            if (!empty($this->creatorName) && $this->creatorName !== $this->getCreatorName()) {
+            if (!empty($this->creatorName)) {
                 $query->bindParam(':addedby', $this->creatorName);
             }
 
             $query->execute();
 
         } catch (PDOException $e) {
+            var_dump($e);
              return "Une erreur est survenue lors de la modification de la recette";
         }
 
@@ -367,5 +367,22 @@ class recipe
         }
 
         return $recipes;
+    }
+
+    public static function getAllCountries() {
+        $DBpdo = connectDB();
+        $DBtablename = 'recettes';
+
+        $countries = [];
+
+        try {
+            $query = $DBpdo->prepare("SELECT DISTINCT `countries` FROM `$DBtablename`");
+            $query->execute();
+            $countries = $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
+
+        return $countries;
     }
 }

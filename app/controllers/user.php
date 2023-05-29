@@ -1,6 +1,6 @@
 <?php
 
-require_once realpath(dirname(__FILE__) . '/../db-config.php');
+require_once(realpath(dirname(__FILE__) . '/../db-config.php'));
 
 class user
 {

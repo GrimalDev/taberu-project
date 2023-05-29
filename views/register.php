@@ -1,7 +1,7 @@
 <?php // PHP Part with form process
 
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
-require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 
 //verify if user is logged in
 session_start();

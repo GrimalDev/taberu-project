@@ -1,6 +1,6 @@
 <?php
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
-require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 
 session_start();
 

@@ -1,8 +1,8 @@
 <?php
 require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
-require(realpath(dirname(__FILE__) . '/../app/redirection.php'));
-require(realpath(dirname(__FILE__) . '/../app/controllers/recipe.php'));
-require(realpath(dirname(__FILE__) . '/../app/controllers/user.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/redirection.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/controllers/recipe.php'));
+require_once(realpath(dirname(__FILE__) . '/../app/controllers/user.php'));
 
 session_start();
 
@@ -39,8 +39,8 @@ function isFormValidated() { // check for validated form, get variables, and exe
 
 function verifyFormData() {
 
-    if (strlen(FORM_TITLE) > 30) { return "Le titre ne doit pas excéder 30 charactères"; }
-    if (strlen(FORM_DESCRIPTION) > 50) { return "La description ne doit pas excéder 50 charactères"; }
+    if (strlen(FORM_TITLE) > 50) { return "Le titre ne doit pas excéder 50 charactères"; }
+    if (strlen(FORM_DESCRIPTION) > 200) { return "La description ne doit pas excéder 200 charactères"; }
 
     return sendDataDB(); // do stuff with the data
 }
@@ -50,11 +50,15 @@ function sendDataDB() { // process the data coming from the form
 
     $newRecipe = new recipe();
 
-    $newRecipe->setTitle(FORM_TITLE);
-    $newRecipe->setDescription(FORM_DESCRIPTION);
-    $newRecipe->setRecipeBody(FORM_RECIPEBODY);
-    $newRecipe->setCountry(FORM_COUNTRY);
-    $newRecipe->setCreatorName($connectedUser->getUsername());
+    try {
+        $newRecipe->setTitle(FORM_TITLE);
+        $newRecipe->setDescription(FORM_DESCRIPTION);
+        $newRecipe->setRecipeBody(FORM_RECIPEBODY);
+        $newRecipe->setCountry(FORM_COUNTRY);
+        $newRecipe->setCreatorName($connectedUser->getUsername());
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
 
     $message = $newRecipe->addRecipe();
 
@@ -94,10 +98,10 @@ function displayAllRecipes() {
 
     <title>TaBeRu compte</title>
 
-    <link rel="stylesheet" href="../style/style-user-space.css" type="text/css">
+    <link rel="stylesheet" href="/style/style-user-space.css" type="text/css">
 
     
-    <script defer src="../scripts/script-user-space.js" type="application/javascript"></script>
+    <script defer src="/scripts/script-char-counter.min.js" type="application/javascript"></script>
 
 </head>
 <body>
@@ -117,10 +121,10 @@ function displayAllRecipes() {
             <option value="japan">Japon</option>
         </select>
 
-        <label for="title-counter-input">Charactères restants: <span id="title-char-count" class="char-counter">30/30</span></span></label>
+        <label for="title-counter-input">Charactères restants: <span id="title-char-count" class="char-counter">50/50</span></span></label>
         <input id="title-counter-input" name="title" type="text" placeholder="Titre de ma recette">
 
-        <label for="description-counter-input">Charactères restants: <span id="description-char-count" class="char-counter">50/50</span></span></label>
+        <label for="description-counter-input">Charactères restants: <span id="description-char-count" class="char-counter">200/200</span></span></label>
         <input id="description-counter-input" name="description" type="text" placeholder="Description de ma recette">
 
         <textarea name="recipeBody" cols="30" rows="40" placeholder="Ma recette points par points"></textarea>

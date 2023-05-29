@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
@@ -79,7 +79,7 @@ function verifyFormData(): string
     ]);
 
     //save mail in database
-    require realpath(dirname(__FILE__) . '/../app/db-config.php');
+    require_once(realpath(dirname(__FILE__) . '/../app/db-config.php'));
     try {
         $DBpdo = connectDB();
 

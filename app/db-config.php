@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 //load environnement variable with .env file at project root
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
@@ -8,7 +8,7 @@ $dotenv->safeLoad();
 
 $dotenv->required(['DB_HOST_PRODUCTION', 'DB_HOST_DEVELOPMENT', 'DB_NAME', 'DB_USERNAME', 'DB_PASSWORD']);
 
-require_once realpath(dirname(__FILE__) . '/../app/redirection.php');
+require_once(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 
 //Access environnement variable for host. If environnement is in production use the "mariadb" host
 define("DB_HOST", getenv('ENVIRONMENT') === 'production' ? $_ENV['DB_HOST_PRODUCTION'] : $_ENV['DB_HOST_DEVELOPMENT']);
