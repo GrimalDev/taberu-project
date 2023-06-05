@@ -3,7 +3,8 @@
 /*---------IMPORTS----------*/
 
 @import 'style-common';
-@import 'style-single-recipe';
+@import "style-single-recipe";
+@import 'style-single-recipe-modify';
 
 /*---------GENERAL STUFF----*/
 
@@ -53,14 +54,16 @@ h1 {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    cursor: pointer;
-    &:hover > .section-title {
-      background-color: $taberu-orange;
-      box-shadow: $taberu-orange 0 0 2px 1px;
-      color: $taberu-white;
-    }
-    > .section-title ~ * {
-      display: none;
+    > .section-title {
+      cursor: pointer;
+      &:hover {
+        background-color: $taberu-orange;
+        box-shadow: $taberu-orange 0 0 2px 1px;
+        color: $taberu-white;
+      }
+      ~ * {
+        display: none;
+      }
     }
     &.active {
       > .section-title ~ * {

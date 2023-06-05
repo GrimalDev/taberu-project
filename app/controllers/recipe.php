@@ -183,9 +183,6 @@ class recipe
 
     public function deleteRecipe(): bool|string
     {
-        var_dump($this);
-        die();
-
         try {
             $query = $this->DBpdo->prepare("DELETE FROM `$this->DBtablename` WHERE `id` = :id");
             $query->bindParam(':id', $this->id, PDO::PARAM_INT);
