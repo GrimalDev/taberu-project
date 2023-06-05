@@ -90,6 +90,7 @@ function displayAllRecipes() {
 
     generateCards(recipe::getRecipesByUser($connectedUser->getUsername()));
 }
+
 ?>
 
 <html lang="fr">
@@ -137,12 +138,43 @@ function displayAllRecipes() {
 
         </form>
     </div>
-    <div class="section-container">
-        <div class="section-title">Mes recettes ajoutées</div>
-        <div id="all-generated-cards">
-            <?php displayAllRecipes() ?>
+    <?php // display section only if there are recipes
+    if (recipe::getRecipesByUser($connectedUser->getUsername())) { ?>
+        <div class="section-container dynamic">
+            <div class="section-title">Mes recettes ajoutées</div>
+            <div id="all-generated-cards">
+                <?php displayAllRecipes() ?>
+            </div>
         </div>
-    </div>
+    <?php } ?>
+    <?php if (isset($_SESSION['sess_user_id']) && $connectedUser->getRole() === "admin") {
+        $allUsers = user::getAllUsers();
+        //remove password and id from array
+        foreach ($allUsers as $key => $user) {
+            unset($allUsers[$key]['password']);
+            unset($allUsers[$key]['id']);
+        }
+        ?>
+        <div class="section-container dynamic">
+            <div class="section-title">Gestion des utilisateurs</div>
+            <div class="section-content">
+                <table class="table-view">
+                    <tr>
+                        <?php foreach ($allUsers[0] as $key => $_) {
+                            echo '<th>'.$key.'</th>';
+                        } ?>
+                    </tr>
+                    <?php foreach ($allUsers as $user) {
+                        echo '<tr>';
+                        foreach ($user as $value) {
+                            echo '<td>'.$value.'</td>';
+                        }
+                        echo '</tr>';
+                    } ?>
+                </table>
+            </div>
+        </div>
+    <?php } ?>
 </main>
 <!--Get footer template-->
 <?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>

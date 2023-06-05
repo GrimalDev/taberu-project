@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*THIS IS THE SASS STYLE SHEET OF THE COMPTE PAGE*/
 /*---------IMPORTS----------*/
 /*COMMON SASS FILE FOR RULES APPLYING TO ALL*/
@@ -929,6 +930,97 @@ main {
   box-shadow: rgb(246, 107, 14) 1px 1px 2px 2px;
 }
 .modify-form-container .modify-form label {
+  cursor: pointer;
+}
+
+.delete-confirmation__container {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #efefef;
+  width: fit-content;
+  height: 4rem;
+  border-radius: 1rem;
+  box-shadow: rgb(246, 107, 14) 1px 1px 2px 2px;
+  padding: 2rem;
+  z-index: 10;
+}
+.delete-confirmation__container .delete-button {
+  background-color: rgb(246, 107, 14);
+  width: 5rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  box-shadow: rgba(17, 43, 60, 0.61) 1px 1px 2px 2px;
+  cursor: pointer;
+  color: #efefef;
+  margin: 0 0.5rem;
+}
+.delete-confirmation__container .delete-button:hover {
+  background-color: #efefef;
+  color: rgb(246, 107, 14);
+}
+.delete-confirmation__container.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.delete-confirmation__container.active .delete-confirmation__text {
+  text-align: center;
+}
+
+.table-view {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  color: #112b3c;
+}
+.table-view th, .table-view td {
+  padding: 0.5rem 1.5rem;
+}
+.table-view th {
+  background-color: rgba(204, 204, 204, 0.5);
+  box-shadow: rgba(17, 43, 60, 0.61) 1px 1px 2px 2px;
+}
+.table-view td {
+  position: relative;
+  background-color: #efefef;
+  box-shadow: rgba(17, 43, 60, 0.61) 1px 1px 2px 2px;
+}
+.table-view td:hover {
+  background-color: rgb(246, 107, 14);
+  color: #efefef;
+}
+.table-view td:hover::after {
+  content: "✏️";
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  color: #efefef;
+  height: 1.7rem;
+  width: 1.7rem;
+  font-size: 1.4rem;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-bottom-left-radius: 0 !important;
+  box-shadow: rgba(17, 43, 60, 0.61) 1px 1px 2px 2px;
+  background-color: aliceblue;
+  z-index: 10;
   cursor: pointer;
 }
 

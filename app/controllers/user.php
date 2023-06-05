@@ -287,4 +287,13 @@ class user
         $query->bindParam(':action', $action);
         $query->execute();
     }
+
+    public static function getAllUsers() {
+        $DBpdo = connectDB();
+        $DBtablename = 'users';
+
+        $query = $DBpdo->prepare("SELECT * FROM `$DBtablename`");
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC); }
 }

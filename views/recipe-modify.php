@@ -6,7 +6,7 @@ require_once(realpath(dirname(__FILE__) . '/../app/controllers/user.php'));
 
 session_start();
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     redirect(' /connection');
     exit;
 }
@@ -41,11 +41,21 @@ if ($currentUserUsername !== $currentRecipeAuthor) {
 }
 
 // check for validated form, get variables, and execute the validations
-function isFormValidated() {
+function isFormValidated()
+{
 
-    if (!isset($_POST["submit"])) { return; }
+    //if delete button is pressed, delete the recipe
+    if (isset($_POST['delete'])) {
+        return deleteRecipe();
+    }
 
-    if (!isset($_POST['country']) && !isset($_POST["title"]) && !isset($_POST["description"]) && !isset($_POST["recipeBody"])) { return "Veuillez renseigner tout les champs"; };
+    if (!isset($_POST["submit"])) {
+        return "";
+    }
+
+    if (!isset($_POST['country']) && !isset($_POST["title"]) && !isset($_POST["description"]) && !isset($_POST["recipeBody"])) {
+        return "Veuillez renseigner tout les champs";
+    };
 
     //define all the required global constances
     define("FORM_TITLE", $_POST["title"]);
@@ -59,8 +69,12 @@ function isFormValidated() {
 function verifyFormData(): string
 {
 
-    if (strlen(FORM_TITLE) > 50) { return "Le titre ne doit pas excéder 50 charactères"; }
-    if (strlen(FORM_DESCRIPTION) > 200) { return "La description ne doit pas excéder 200 charactères"; }
+    if (strlen(FORM_TITLE) > 50) {
+        return "Le titre ne doit pas excéder 50 charactères";
+    }
+    if (strlen(FORM_DESCRIPTION) > 200) {
+        return "La description ne doit pas excéder 200 charactères";
+    }
 
     return updateRecipe();
 }
@@ -93,6 +107,9 @@ function updateRecipe(): string
 
     $message = $newRecipe->updateRecipe();
 
+    //set title for redirection
+    $titleURL = $newRecipe->setTitle(FORM_TITLE);
+
     if ($message !== true) {
         return $message;
     }
@@ -100,6 +117,22 @@ function updateRecipe(): string
     //create the new url with the encoded title in get
     $newURL = '/modifier-recette?recipe=' . urlencode($newRecipe->getTitle());
     redirect($newURL);
+}
+
+function deleteRecipe(): string
+{
+    global $titleURL;
+
+    $newRecipe = new recipe();
+    $newRecipe->getRecipeByTitle($titleURL);
+
+    $message = $newRecipe->deleteRecipe();
+
+    if ($message !== true) {
+        return $message;
+    }
+
+    redirect('/compte');
 }
 
 $FORM_ERRORS = isFormValidated();
@@ -112,7 +145,7 @@ $allCountries = recipe::getAllCountries();
 ?>
 <html lang="fr">
 <head>
-    <?php include realpath(dirname(__FILE__) . '/partials/head.php')?>
+    <?php include realpath(dirname(__FILE__) . '/partials/head.php') ?>
 
     <title>TaBeRu forum</title>
 
@@ -122,7 +155,7 @@ $allCountries = recipe::getAllCountries();
 </head>
 <body>
 <!--Get header template-->
-<?php include realpath(dirname(__FILE__) . '/partials/header.php')?>
+<?php include realpath(dirname(__FILE__) . '/partials/header.php') ?>
 <main>
     <div class="section-container">
         <div class="section-title">
@@ -141,7 +174,7 @@ $allCountries = recipe::getAllCountries();
         </div>
         <p class="section-title-content"><?php echo $mainRecipe->getTitle(true) ?></p>
     </div>
-    
+
     <div class="section-container">
         <div class="section-title">Description:</div>
         <p class="section-title-content"><?php echo $mainRecipe->getDescription(true) ?></p>
@@ -157,35 +190,44 @@ $allCountries = recipe::getAllCountries();
     <div class="section-container" id="modifier-container">
         <div class="section-title">MODIFIER LA RECETTE:</div>
         <div class="modify-form-container">
-            <form method="post" class="modify-form" action="#modifier-container">
-                <div><pre><?php echo $FORM_ERRORS; ?></pre></div>
+            <form method="post" class="modify-form" action="" id="modify-recipe-form">
+                <div>
+                    <pre><?php echo $FORM_ERRORS; ?></pre>
+                </div>
 
                 <div class="field-container">
                     <label for="contry-select">Veuillez renseigner le pays</label>
                     <select name="country" id="contry-select">
                         <option value="">Origine de la recette</option>
                         <?php
-                            foreach ($allCountries as $country) {
-                                $active = $mainRecipe->getCountry() === $country['country'] ? 'selected' : '';
-                                echo '<option value="' . $country['country'] . '" ' . $active . '>' . $country["fr"] . '</option>';
-                            }
+                        foreach ($allCountries as $country) {
+                            $active = $mainRecipe->getCountry() === $country['country'] ? 'selected' : '';
+                            echo '<option value="' . $country['country'] . '" ' . $active . '>' . $country["fr"] . '</option>';
+                        }
                         ?>
                     </select>
                 </div>
 
                 <div class="field-container">
-                    <label for="title-counter-input">Charactères restants: <span id="title-char-count" class="char-counter">50/50</span></label>
-                    <input id="title-counter-input" name="title" type="text" placeholder="<?php echo $mainRecipe->getTitle() ?>" value="<?php echo $mainRecipe->getTitle() ?>">
+                    <label for="title-counter-input">Charactères restants: <span id="title-char-count"
+                                                                                 class="char-counter">50/50</span></label>
+                    <input id="title-counter-input" name="title" type="text"
+                           placeholder="<?php echo $mainRecipe->getTitle() ?>"
+                           value="<?php echo $mainRecipe->getTitle() ?>">
                 </div>
 
                 <div class="field-container">
-                    <label for="description-counter-input">Charactères restants: <span id="description-char-count" class="char-counter">200/200</span></label>
-                    <input id="description-counter-input" name="description" type="text" placeholder="<?php echo $mainRecipe->getDescription() ?>" value="<?php echo $mainRecipe->getDescription() ?>">
+                    <label for="description-counter-input">Charactères restants: <span id="description-char-count"
+                                                                                       class="char-counter">200/200</span></label>
+                    <input id="description-counter-input" name="description" type="text"
+                           placeholder="<?php echo $mainRecipe->getDescription() ?>"
+                           value="<?php echo $mainRecipe->getDescription() ?>">
                 </div>
 
                 <div class="field-container">
                     <label for="recipe-body">Recette:</label>
-                    <textarea id="recipe-body" name="recipeBody" cols="30" rows="40" placeholder="<?php echo $mainRecipe->getRecipeBody() ?>"><?php echo $mainRecipe->getRecipeBody() ?></textarea>
+                    <textarea id="recipe-body" name="recipeBody" cols="30" rows="40"
+                              placeholder="<?php echo $mainRecipe->getRecipeBody() ?>"><?php echo $mainRecipe->getRecipeBody() ?></textarea>
                 </div>
 
                 <input name="submit" type="submit" value="Publier">
@@ -193,13 +235,54 @@ $allCountries = recipe::getAllCountries();
             </form>
         </div>
         <div class="modify-form-container">
-            <form method="post" class="modify-form">
+            <form method="post" class="modify-form" id="delete-recipe-form" action="">
+                <input type="hidden" name="delete">
                 <input type="submit" value="Supprimer" id="delete-button" name="delete">
             </form>
+            <div id="delete-recipe__container" class="delete-confirmation__container">
+                <p class="delete-confirmation__text">Êtes-vous sûr de vouloir supprimer cette recette?</p>
+                <div class="delete-confirmation__button-container">
+                    <button id="delete-recipe__confirm-button" class="delete-button confirm">OUI</button>
+                    <button id="delete-recipe__refuse-button" class="delete-button refuse">NON</button>
+                </div>
+            </div>
+            <script>
+              //handle the delete button to prevent accidental deletion
+              function deleteConfirmationHandle(e) {
+                e.preventDefault();
+                const deleteConfirmationContainer = document.getElementById('delete-recipe__container');
+                const confirmButton = document.getElementById('delete-recipe__confirm-button');
+                const refuseButton = document.getElementById('delete-recipe__refuse-button');
+
+                //if the confirmation container is already active, deactivate container
+                if (deleteConfirmationContainer.classList.contains('active')) {
+                  deleteConfirmationContainer.classList.toggle('active');
+                  //remove event listeners on the confirmation buttons
+                  confirmButton.removeEventListener('click', deleteRecipe);
+                  refuseButton.removeEventListener('click', deleteConfirmationHandle);
+                  return;
+                }
+                deleteConfirmationContainer.classList.toggle('active');
+
+                //add event listeners on the confirmation buttons
+                confirmButton.addEventListener('click', deleteRecipe);
+                refuseButton.addEventListener('click', deleteConfirmationHandle);
+              }
+
+              //handle the delete recipe request
+              function deleteRecipe(e) {
+                //send the form
+                const form = document.getElementById('delete-recipe-form');
+                form.submit();
+              }
+
+              const deleteButton = document.getElementById('delete-recipe-form');
+              deleteButton.addEventListener('click', deleteConfirmationHandle);
+            </script>
         </div>
     </div>
 </main>
 <!--Get footer template-->
-<?php include realpath(dirname(__FILE__) . '/partials/footer.html')?>
+<?php include realpath(dirname(__FILE__) . '/partials/footer.html') ?>
 </body>
 </html>
