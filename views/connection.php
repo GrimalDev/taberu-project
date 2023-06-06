@@ -38,8 +38,6 @@ function verifyFormData() {
 }
 
 function sendDataDB($connectWithUsername) { // process the data coming from the form
-    $DBpdo = connectDB();
-    $DBtablename = 'users';
     $auth = FORM_EMAIL;
 
     $user = new user();
