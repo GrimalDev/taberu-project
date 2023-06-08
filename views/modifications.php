@@ -56,7 +56,7 @@ function sendDataDB() { // process the data coming from the form
     try {
         $updateUser->updateUser();
     } catch (PDOException $e) {
-        return "Une erreur est survenue lors de la modification du mot de passe";
+        return $e->getMessage();
     }
 
     return "Mot de passe modifié avec succès";
