@@ -102,6 +102,9 @@ class user
         return true;
     }
 
+    /**
+     * @throws Exception
+     */
     public function createUser() : bool|Exception
     {
         $DBpdo = connectDB();
@@ -116,13 +119,16 @@ class user
             $query->execute();
         } catch (PDOException $e) {
             if ($e->errorInfo[1] == 1062) {
-                return new Exception("Un compte est déja associé à cette email");
+                throw new Exception("Un compte est déja associé à cette email");
             }
-            return new Exception("Erreur lors de l'ajout de l'utilisateur");
+            throw new Exception("Erreur lors de l'ajout de l'utilisateur");
         }
         return true;
     }
 
+    /**
+     * @throws Exception
+     */
     public function updateUser() : bool|Exception
     {
         $DBpdo = connectDB();
@@ -156,9 +162,9 @@ class user
             $query->execute();
         } catch (PDOException $e) {
             if ($e->errorInfo[1] == 1062) {
-                return new Exception("Un compte est déja associé à cette email");
+                throw new Exception("Un compte est déja associé à cette email");
             }
-            return new Exception("Erreur lors de la modification de l'utilisateur");
+            throw new Exception("Erreur lors de la modification de l'utilisateur");
         }
 
         return true;

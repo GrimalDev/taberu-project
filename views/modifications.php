@@ -46,11 +46,18 @@ function verifyFormData() {
     return sendDataDB(); // do stuff with the data
 }
 
+/**
+ * @throws Exception
+ */
 function sendDataDB() { // process the data coming from the form
     $updateUser = new user();
     $updateUser->setId($_SESSION['sess_user_id']);
     $updateUser->setPassHashFromPassword(FORM_PASSWORD);
-    $updateUser->updateUser();
+    try {
+        $updateUser->updateUser();
+    } catch (PDOException $e) {
+        return "Une erreur est survenue lors de la modification du mot de passe";
+    }
 
     return "Mot de passe modifié avec succès";
 }

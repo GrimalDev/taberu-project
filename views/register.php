@@ -13,7 +13,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 $FORM_ERRORS = '';
-$DBpdo = connectDB();
 
 function isFormValidated() { // check for validated form, get variables, and execute the validations
 
@@ -54,8 +53,8 @@ function sendDataDB() { // process the data coming from the form
         $user->setRole('regular');
         $user->setPassHashFromPassword(FORM_PASSWORD);
         $user->createUser();
-    } catch (PDOException $e) {
-        return $e;
+    } catch (Exception $e) {
+        return "Une erreur est survenue lors de la création du compte.";
     }
     redirect(' /connection');
 }
