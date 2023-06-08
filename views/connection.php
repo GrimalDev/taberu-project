@@ -49,7 +49,7 @@ function sendDataDB($connectWithUsername) { // process the data coming from the 
     }
 
     if(!$user->verifyPassword(FORM_PASSWORD)) {
-        return "Aucun compte n'existe à cette addresse mail ou nom d'utilisateur";
+        return "Mauvais mot de passe";
     }
 
     //defnie properties for the session cookies
