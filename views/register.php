@@ -53,8 +53,8 @@ function sendDataDB() { // process the data coming from the form
         $user->setRole('regular');
         $user->setPassHashFromPassword(FORM_PASSWORD);
         $user->createUser();
-    } catch (PDOException $e) {
-        return $e->getMessage();
+    } catch (Exception $e) {
+        return "Une erreur est survenue lors de la création du compte.";
     }
     redirect(' /connection');
 }
