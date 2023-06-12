@@ -1,3 +1,7 @@
+//Here is the only place a jquery is used. It is used to resize the map on the home page.
+//Jquery has a special library called imagemapster that allows you to easily interract with an image map.
+//This code is not entirely mine. A huge thanks to this stack overflow post for helping me figure out how to resize the map:
+// https://stackoverflow.com/questions/23642773/using-the-onclick-event-to-fill-a-selected-region-in-an-image-map-with-color-via
 $(document).ready(function() {
     const image = $('#img_ID');
 
@@ -7,6 +11,7 @@ $(document).ready(function() {
         clickNavigate: true
     });
 
+    //Only use var in this case because of scope problems
     var resizing,
         body= $(body),
         win=$(window),
