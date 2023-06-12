@@ -34,8 +34,11 @@ switch ($urlpath) {
     case '/contact' :
         require __DIR__ . '/views/contact.php';
         break;
-    case '/forum' :
-        require __DIR__ . '/views/forum.php';
+//    case '/forum' :
+//        require __DIR__ . '/views/forum.php';
+//        break;
+    case '/legal' :
+        require __DIR__ . '/views/legal.php';
         break;
     case '/logout' :
         require __DIR__ . '/views/logout.php';

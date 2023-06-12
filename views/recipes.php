@@ -65,7 +65,7 @@ $allCountries = recipe::getAllCountries();
         <div class="all-generated-cards-container make-disappear">
             <?php
                 foreach ($allCountries as $country) {
-                    echo "<h1 id='japon'>Recettes du " . $country['fr'] . "</h1>";
+                    echo "<h1 id=" . $country['country'] . ">Recettes du " . $country['fr'] . "</h1>";
                     echo "<div class='all-generated-cards'>";
                     displayAllRecipes($country['country']);
                     echo "</div>";

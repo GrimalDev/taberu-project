@@ -1,0 +1,19 @@
+/*------------IMPORTS-----------*/
+@import "style-common";
+
+/*------------GENERAL-----------*/
+
+main {
+    width: 80% !important;
+    margin: 3rem auto;
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    color: #2d2d2d;
+}
+
+/*------------RESPONSIVE-----------*/
+@media screen and (max-width: 768px) {
+    main {
+        width: 98%;
+    }
+}

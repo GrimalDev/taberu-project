@@ -1,6 +1,4 @@
-/*THIS IS THE SASS STYLE SHEET OF THE CONTACT PAGE*/
-/*---------IMPORTS----------*/
-/*COMMON SASS FILE FOR RULES APPLYING TO ALL*/
+/*------------IMPORTS-----------*/ /*COMMON SASS FILE FOR RULES APPLYING TO ALL*/
 @font-face {
   font-family: Maagkramp;
   src: url("./fonts/Maagkramp/maagkramp.ttf");
@@ -391,77 +389,20 @@ a.underlined.nav-txt-active::after {
     flex-basis: 50%;
   }
 }
-/*---------GENERAL STUFF----*/
-.error-container {
-  display: none !important;
-}
-
-/*--------MAIN----------*/
+/*------------GENERAL-----------*/
 main {
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  height: calc(100vh - 5rem - 3.34em);
-  width: clamp(300px, 60%, 900px);
-}
-main #contact-form {
-  margin-top: 15vh;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-main #contact-form > * {
-  width: 100%;
-}
-main #contact-form .form__action-button {
-  width: 10rem;
-  margin: 0 auto;
-  cursor: pointer;
-}
-main #contact-form .form__action-button[type=submit] {
-  background-color: rgb(246, 107, 14);
-  color: #efefef;
-}
-main #contact-form .form__action-button[type=submit]:hover {
-  background-color: #efefef;
-  color: rgb(246, 107, 14) !important;
-}
-main #contact-form .form__action-button[type=reset]:hover {
-  background-color: rgb(246, 107, 14);
-  color: #efefef;
-}
-main #contact-form .form__action-button[type=reset]:hover:hover {
-  background-color: rgb(246, 107, 14);
-  color: #efefef !important;
-}
-main #contact-form #form-buttons-container {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-main .return-message {
-  width: fit-content;
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: rgb(246, 107, 14);
-  font-weight: bold;
+  width: 80% !important;
+  margin: 3rem auto;
+  font-family: "Roboto", serif;
+  font-style: normal;
+  color: #2d2d2d;
 }
 
-/*--------RESPONSIVE----------*/
+/*------------RESPONSIVE-----------*/
 @media screen and (max-width: 768px) {
   main {
-    width: 100%;
-  }
-  main #contact-form {
-    width: 100%;
+    width: 98%;
   }
 }
 
-/*# sourceMappingURL=style-contact.css.map */
+/*# sourceMappingURL=legal-style.css.map */
