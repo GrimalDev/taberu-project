@@ -91,6 +91,8 @@ function displayAllRecipes() {
     generateCards(recipe::getRecipesByUser($connectedUser->getUsername()));
 }
 
+$allCountries = recipe::getAllCountries();
+
 ?>
 
 <html lang="fr">
@@ -120,10 +122,11 @@ function displayAllRecipes() {
 
             <select name="country" id="contry-select">
                 <option value="">Origine de la recette</option>
-                <option value="india">Inde</option>
-                <option value="china">Chine</option>
-                <option value="thailand">Thaïland</option>
-                <option value="japan">Japon</option>
+                <?php
+                    foreach ($allCountries as $country) {
+                        echo '<option value="'.$country['country'].'">'.$country['fr'].'</option>';
+                    }
+                ?>
             </select>
 
             <label for="title-counter-input">Charactères restants: <span id="title-char-count" class="char-counter">50/50</span></span></label>

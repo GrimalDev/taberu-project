@@ -32,6 +32,13 @@ header {
   height: 5rem;
   width: calc(100% - 2rem);
 }
+header .logo-link {
+  height: 100%;
+}
+header .logo-link img {
+  width: 100%;
+  height: 100%;
+}
 header nav {
   width: 100%;
   height: 100%;
@@ -112,7 +119,8 @@ form {
 input[type=submit] {
   width: 35%;
   border: 2px solid transparent;
-  background: #f66b0e;
+  background: rgb(246, 107, 14);
+  cursor: pointer !important;
 }
 input[type=submit]:hover {
   background-color: #efefef;
@@ -124,7 +132,7 @@ input, textarea {
   border-radius: 0.5rem;
 }
 input:not(input[type=submit]), textarea:not(input[type=submit]) {
-  border: 1px solid #f66b0e;
+  border: 1px solid rgb(246, 107, 14);
   width: 100%;
 }
 
@@ -134,7 +142,7 @@ input, textarea {
   color: rgba(17, 43, 60, 0.7);
 }
 input:hover::placeholder, textarea:hover::placeholder {
-  color: #f66b0e;
+  color: rgb(246, 107, 14);
 }
 input::placeholder, textarea::placeholder {
   font-family: Maagkramp, sans-serif;
@@ -144,14 +152,14 @@ select, option {
   background-color: #efefef;
   color: rgba(17, 43, 60, 0.44);
   height: 2.2rem;
-  border: 1px solid #f66b0e;
+  border: 1px solid rgb(246, 107, 14);
   padding: 0.5rem;
   border-radius: 0.5rem;
   font-family: Maagkramp, sans-serif;
   font-size: 1.2rem;
 }
 select:hover, option:hover {
-  color: #f66b0e;
+  color: rgb(246, 107, 14);
 }
 
 .all-generated-cards {
@@ -170,17 +178,31 @@ select:hover, option:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
   height: 12rem;
   min-width: fit-content;
   width: 15rem;
   padding: 0.5rem;
-  background-color: #f66b0e;
+  background-color: rgb(246, 107, 14);
   border-radius: 10px;
+  border: 2px solid transparent;
+}
+.generated-card .card-title {
+  font-size: 1.3rem;
+  font-weight: bold !important;
+  height: 3rem;
+  overflow: hidden;
+}
+.generated-card .card-description {
+  font-weight: normal !important;
+  height: 7rem;
+  overflow: hidden;
 }
 .generated-card:hover {
-  opacity: 0.7;
   cursor: pointer;
+  background-color: #efefef;
+  border: 2px solid rgb(246, 107, 14);
+  color: rgb(246, 107, 14);
 }
 
 /*-----------FOOTER------------*/
@@ -190,20 +212,25 @@ footer {
   margin-top: 5rem;
   background-color: #efefef;
   display: flex;
-  align-items: end;
+  justify-content: space-around;
   color: #112b3c;
   font-size: 1.8em;
   flex-grow: 1;
-}
-footer span {
-  text-decoration: none;
-  color: #112b3c;
 }
 footer a:hover {
   opacity: 0.7;
 }
 footer a:active {
-  color: #f66b0e;
+  color: rgb(246, 107, 14);
+}
+footer .footer-section__container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-size: 1.3rem;
 }
 
 #footer_infos_container {
@@ -250,17 +277,18 @@ a.underlined::after {
   background-color: transparent;
 }
 a.underlined:hover::after {
-  background-color: #f66b0e;
+  background-color: rgb(246, 107, 14);
 }
 a.underlined.nav-txt-active::after {
-  background-color: #f66b0e;
+  background-color: rgb(246, 107, 14);
 }
 
 #animated-burger {
   fill: #112b3c;
+  cursor: pointer;
 }
 #animated-burger:hover {
-  fill: #f66b0e;
+  fill: rgb(246, 107, 14);
 }
 
 .burger-active {
@@ -368,30 +396,82 @@ a.underlined.nav-txt-active::after {
 main {
   height: fit-content;
   padding: 2rem 0 2rem 0;
+  width: 100%;
 }
 
-h1 {
-  background-color: rgba(32, 83, 117, 0.35);
-  width: 90vw;
-  margin-left: 10vw;
-}
-
-h2, p {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
-}
-
-h2 {
-  text-align: center;
-}
-
-#recipes-single-card-container {
+.section-container {
+  position: relative;
   width: 100%;
   height: fit-content;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 3rem;
+}
+.section-container .section-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(32, 83, 117, 0.35);
+  width: 90vw;
+  padding: 0.5rem 0 0.5rem 1rem;
+  font-size: 1.5rem;
+  color: #112b3c;
+  border-radius: 1rem 0 0 0;
+  font-weight: 600;
+  box-shadow: rgba(32, 83, 117, 0.35) 0 0 2px 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-container .section-title, .section-container .section-title-content {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+}
+.section-container .section-title-content {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0 1rem 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.country-indicator {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  gap: 0.5rem;
+  padding-inline: 1rem;
+  color: #112b3c;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.country-indicator img {
+  height: 2rem;
+}
+
+#recipes-single-card-container {
+  width: 90vw;
+  align-self: flex-end;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  min-height: 300px;
 }
 #recipes-single-card-container p {
-  flex-basis: 70%;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.recipe-single-card-text {
+  width: 90%;
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
 }
 
 /*# sourceMappingURL=style-single-recipe.css.map */
