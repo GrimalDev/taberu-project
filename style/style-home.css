@@ -397,6 +397,9 @@ a.underlined.nav-txt-active::after {
   margin-bottom: 2rem;
   animation: slow-pop 0.5s cubic-bezier(1, 0.21, 0.59, 1.27);
 }
+.section-landing__container h2 {
+  text-align: center;
+}
 .section-landing__container .normal-font {
   line-height: 3rem;
   height: fit-content;

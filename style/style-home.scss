@@ -17,6 +17,10 @@
   margin-bottom: 2rem;
   animation: slow-pop .5s cubic-bezier(1,.21,.59,1.27);
 
+    h2 {
+        text-align: center;
+    }
+
   .normal-font {
     line-height: 3rem;
     height: fit-content;
