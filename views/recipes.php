@@ -36,6 +36,9 @@ function displayAllRecipes($country): void
     }
 }
 
+//get all countries
+$allCountries = recipe::getAllCountries();
+
 ?>
 
 <html lang="fr">
@@ -60,25 +63,14 @@ function displayAllRecipes($country): void
             </svg>
         </div>
         <div class="all-generated-cards-container make-disappear">
-            <h1 id="japon">Recettes du Japon</h1>
-            <div class="all-generated-cards">
-                <?php displayAllRecipes("japan")?>
-            </div>
-
-            <h1 id="chine">Recettes de Chine</h1>
-            <div class="all-generated-cards">
-                <?php displayAllRecipes("china")?>
-            </div>
-
-            <h1 id="thailand">Recettes de Thaïland</h1>
-            <div class="all-generated-cards">
-                <?php displayAllRecipes("thailand")?>
-            </div>
-
-            <h1 id="inde">Recettes d'Inde</h1>
-            <div class="all-generated-cards">
-                <?php displayAllRecipes("india")?>
-            </div>
+            <?php
+                foreach ($allCountries as $country) {
+                    echo "<h1 id='japon'>Recettes du " . $country['fr'] . "</h1>";
+                    echo "<div class='all-generated-cards'>";
+                    displayAllRecipes($country['country']);
+                    echo "</div>";
+                }
+            ?>
         </div>
     </main>
     <!--TODO add a big card that displays with the recipe-->

@@ -11,7 +11,6 @@ $(document).ready(function() {
         clickNavigate: true
     });
 
-    //Only use var in this case because of scope problems
     var resizing,
         body= $(body),
         win=$(window),
@@ -40,4 +39,4 @@ $(document).ready(function() {
         }
     };
     $(window).bind('resize',resize);
-})
+});
