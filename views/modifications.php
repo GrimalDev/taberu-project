@@ -36,7 +36,9 @@ function verifyFormData() {
 
     if(!$user->verifyPassword($password_initial)) { return "Mauvais mot de passe"; }
 
-    if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/", FORM_PASSWORD)) {
+    $passwordPattern = '/^(?=.*[@!%*?&])(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,32}$/';
+
+    if (!preg_match($passwordPattern, FORM_PASSWORD)) {
         return "Mot de passe incorrect,<br />&nbsp- Minimum un caractère spécial (@!%*?&),<br />&nbsp- Minimum une Majuscule ainsi que une minuscule,<br />&nbsp- Entre 8 et 32 caractères.";
     }; //Password has been verified
 
