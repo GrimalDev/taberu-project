@@ -14,7 +14,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $connectedUser = new user();
 $userProtector = $connectedUser->getUserById($_SESSION['sess_user_id']);
 
-if ($userProtector === null) {
+if ($userProtector === false) {
     redirect(' /connection');
     exit;
 }
