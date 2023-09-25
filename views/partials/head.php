@@ -9,3 +9,5 @@
 <link rel="manifest" href="/site.webmanifest">
 
 <script defer src="/scripts/script-general.min.js" type="application/javascript"></script>
+
+<meta name="google-site-verification" content="tTHBl_dm0nJbU485ngC-oRKNhvJwX1SPXK4cfZ7JOEQ" />
