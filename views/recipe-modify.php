@@ -15,6 +15,9 @@ $FORM_ERRORS = '';
 
 //Get the wanted recipe
 $titleURL = $_GET['recipe'];
+$currentUserUsername = "";
+$currentRecipeAuthor = "";
+$currentUserRole = "";
 
 //check if the recipe body is modified by the user that created it
 try {

@@ -12,8 +12,8 @@ require_once(realpath(dirname(__FILE__) . '/../app/redirection.php'));
 
 //Access environnement variable for host. If environnement is in production use the "mariadb" host
 define("DB_HOST", getenv('ENVIRONMENT') === 'production' ? $_ENV['DB_HOST_PRODUCTION'] : $_ENV['DB_HOST_DEVELOPMENT']);
-define("DB_USERNAME", $_ENV['DB_USERNAME']);
-define("DB_PASSWORD", $_ENV['DB_PASSWORD']);
+define("DB_USERNAME", getenv('ENVIRONMENT') === 'production' ? $_ENV['DB_USERNAME'] : $_ENV['DB_USERNAME_DEV']);
+define("DB_PASSWORD", getenv('ENVIRONMENT') === 'production' ? $_ENV['DB_PASSWORD'] : $_ENV['DB_PASSWORD_DEV']);
 define("DB_NAME", $_ENV['DB_NAME']);
 
 function connectDB() {
